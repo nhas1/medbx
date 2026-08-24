@@ -1,26 +1,160 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
+/* ─── Design System Tokens ─────────────────────────────────── */
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  /* Clinical Innovation Color Palette */
+  --color-primary: #001026;
+  --color-on-primary: #ffffff;
+  --color-primary-container: #0b2545;
+  --color-on-primary-container: #778db2;
+  --color-primary-fixed: #d5e3ff;
+  --color-primary-fixed-dim: #b1c7f0;
+  --color-on-primary-fixed: #001c3b;
+  --color-on-primary-fixed-variant: #314769;
+  --color-inverse-primary: #b1c7f0;
+
+  --color-secondary: #006971;
+  --color-on-secondary: #ffffff;
+  --color-secondary-container: #76f1ff;
+  --color-on-secondary-container: #006d76;
+  --color-secondary-fixed: #87f3ff;
+  --color-secondary-fixed-dim: #59d8e5;
+  --color-on-secondary-fixed: #001f23;
+  --color-on-secondary-fixed-variant: #004f55;
+
+  --color-tertiary: #001215;
+  --color-on-tertiary: #ffffff;
+  --color-tertiary-container: #00292f;
+  --color-on-tertiary-container: #4497a5;
+  --color-tertiary-fixed: #9feffe;
+  --color-tertiary-fixed-dim: #83d3e1;
+  --color-on-tertiary-fixed: #001f24;
+  --color-on-tertiary-fixed-variant: #004f59;
+
+  --color-surface: #f8f9fa;
+  --color-surface-dim: #d9dadb;
+  --color-surface-bright: #f8f9fa;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container-low: #f3f4f5;
+  --color-surface-container: #edeeef;
+  --color-surface-container-high: #e7e8e9;
+  --color-surface-container-highest: #e1e3e4;
+  --color-surface-variant: #e1e3e4;
+  --color-surface-tint: #495f82;
+  --color-on-surface: #191c1d;
+  --color-on-surface-variant: #44474e;
+  --color-inverse-surface: #2e3132;
+  --color-inverse-on-surface: #f0f1f2;
+
+  --color-background: #f8f9fa;
+  --color-on-background: #191c1d;
+
+  --color-outline: #74777f;
+  --color-outline-variant: #c4c6cf;
+
+  --color-error: #ba1a1a;
+  --color-on-error: #ffffff;
+  --color-error-container: #ffdad6;
+  --color-on-error-container: #93000a;
+
+  /* Typography */
+  --font-sans: 'Plus Jakarta Sans', sans-serif;
+
+  /* Border Radius */
+  --radius-sm: 0.25rem;
+  --radius: 0.5rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.5rem;
+  --radius-full: 9999px;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* ─── Base Styles ───────────────────────────────────────────── */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-on-surface);
+    font-family: var(--font-sans);
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  html[dir="rtl"] body {
+    font-family: 'Tajawal', var(--font-sans), sans-serif;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* ─── Custom Utilities ──────────────────────────────────────── */
+@layer utilities {
+
+  /* Gradients */
+  .bg-gradient-primary {
+    background: linear-gradient(135deg, #001026 0%, #006971 100%);
+  }
+
+  .text-gradient {
+    background: linear-gradient(135deg, #001026 0%, #006971 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .text-gradient-teal {
+    background: linear-gradient(135deg, #006971 0%, #59d8e5 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Dot Background Pattern */
+  .bg-pattern-dots {
+    background-image: radial-gradient(#c4c6cf 3px, transparent 2px);
+    background-size: 24px 24px;
+  }
+
+  /* Clinical shadows */
+  .shadow-clinical {
+    box-shadow: 0px 4px 20px rgba(11, 37, 69, 0.05);
+  }
+
+  .shadow-clinical-lg {
+    box-shadow: 0px 8px 30px rgba(11, 37, 69, 0.10);
+  }
+
+  /* Standard transition */
+  .transition-standard {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+}
+
+/* ─── Scroller animation ────────────────────────────────────── */
+@keyframes scroll-left {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.scroller-track {
+  display: flex;
+  gap: 3rem;
+  align-items: center;
+  width: max-content;
+  animation: scroll-left 30s linear infinite;
+}
+
+.scroller-track:hover {
+  animation-play-state: paused;
+}
+
+/* ─── Details / FAQ animation ───────────────────────────────── */
+details summary::-webkit-details-marker {
+  display: none;
 }
