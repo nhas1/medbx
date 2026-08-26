@@ -18,11 +18,15 @@ interface LanguageContextType {
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
 export function LanguageProvider({ children }: { children: React.ReactNode }) {
-  const [locale, setLocaleState] = useState<Locale>("en");
+  const [locale, setLocaleState] = useState<Locale>("ar");
 
-  // Load saved preference if available
+  // Ensure default is always Arabic on app open
   useEffect(() => {
-    const savedLocale = localStorage.getItem("medbx_locale") as Locale | null;
+    // Remove old saved 'en' from localStorage so opening the app starts in Arabic
+    if (localStorage.getItem("medbx_locale") === "en") {
+      localStorage.removeItem("medbx_locale");
+    }
+    const savedLocale = sessionStorage.getItem("medbx_locale") as Locale | null;
     if (savedLocale === "en" || savedLocale === "ar") {
       setLocaleState(savedLocale);
     }
@@ -33,7 +37,7 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
 
   const setLocale = (newLocale: Locale) => {
     setLocaleState(newLocale);
-    localStorage.setItem("medbx_locale", newLocale);
+    sessionStorage.setItem("medbx_locale", newLocale);
   };
 
   const toggleLocale = () => {
@@ -44,6 +48,7 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     document.documentElement.lang = locale;
     document.documentElement.dir = dir;
+    document.title = locale === "ar" ? "منتدى ميدبكس" : "MedBX Forum";
   }, [locale, dir]);
 
   return (

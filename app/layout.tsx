@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Plus_Jakarta_Sans } from "next/font/google";
+import { Plus_Jakarta_Sans, Tajawal } from "next/font/google";
 import { LanguageProvider } from "./context/LanguageContext";
 import "./globals.css";
 
@@ -10,13 +10,20 @@ const plusJakartaSans = Plus_Jakarta_Sans({
   display: "swap",
 });
 
+const tajawal = Tajawal({
+  subsets: ["arabic"],
+  weight: ["400", "500", "700"],
+  variable: "--font-tajawal",
+  display: "swap",
+});
+
 export const metadata: Metadata = {
-  title: "MedBX Forum 2027 – Riyadh | Saudi Healthcare Innovation",
+  title: "منتدى ميدبكس",
   description:
-    "The premier Saudi national platform bridging clinical employment, medical research, and health tech innovations. Connecting leading entities with top-tier talent. Riyadh, September 2027.",
+    "المنصة الوطنية السعودية الرائدة التي تجمع بين التوظيف الطبي، الأبحاث الطبية، والابتكارات التقنية الصحية. نربط الجهات الرائدة بأفضل الكفاءات والكوادر.",
   openGraph: {
-    title: "MedBX Forum 2027",
-    description: "Saudi Arabia's premier healthcare innovation forum.",
+    title: "منتدى ميدبكس",
+    description: "المنصة الوطنية السعودية الرائدة في الابتكار الصحي.",
     type: "website",
   },
 };
@@ -27,20 +34,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={plusJakartaSans.variable}>
-      <head>
-        {/* Material Symbols */}
-        <link
-          rel="stylesheet"
-          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap"
-        />
-        {/* Tajawal for Arabic */}
-        <link
-          rel="stylesheet"
-          href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap"
-        />
-      </head>
-      <body className="antialiased">
+    <html
+      lang="ar"
+      dir="rtl"
+      className={`${plusJakartaSans.variable} ${tajawal.variable}`}
+    >
+      <body className="antialiased" suppressHydrationWarning>
         <LanguageProvider>{children}</LanguageProvider>
       </body>
     </html>

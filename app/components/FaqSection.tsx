@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { LuChevronDown } from "react-icons/lu";
 import { useLanguage } from "../context/LanguageContext";
 
 export default function FaqSection() {
@@ -9,7 +10,7 @@ export default function FaqSection() {
 
   return (
     <section
-      className="py-24 max-w-3xl mx-auto px-8 md:px-10"
+      className="py-24 max-w-5xl mx-auto px-8 md:px-10"
       aria-label="Frequently Asked Questions"
     >
       <div className="text-center mb-14">
@@ -36,14 +37,12 @@ export default function FaqSection() {
                 <span className="font-semibold text-[var(--color-primary)] pr-4 rtl:pr-0 rtl:pl-4">
                   {faq.q}
                 </span>
-                <span
+                <LuChevronDown
                   className={[
-                    "material-symbols-outlined text-[var(--color-secondary)] flex-shrink-0 transition-transform duration-300",
+                    "text-xl text-[var(--color-secondary)] flex-shrink-0 transition-transform duration-300",
                     isOpen ? "rotate-180" : "rotate-0",
                   ].join(" ")}
-                >
-                  expand_more
-                </span>
+                />
               </button>
 
               {isOpen && (

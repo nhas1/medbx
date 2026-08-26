@@ -59,6 +59,7 @@
 
   /* Typography */
   --font-sans: 'Plus Jakarta Sans', sans-serif;
+  --font-tajawal: 'Tajawal', sans-serif;
 
   /* Border Radius */
   --radius-sm: 0.25rem;
@@ -71,8 +72,12 @@
 
 /* ─── Base Styles ───────────────────────────────────────────── */
 @layer base {
+  html, body {
+    scroll-behavior: smooth !important;
+  }
+
   html {
-    scroll-behavior: smooth;
+    overflow-x: hidden;
   }
 
   body {
@@ -84,9 +89,10 @@
   }
 
   html[dir="rtl"] body {
-    font-family: 'Tajawal', var(--font-sans), sans-serif;
+    font-family: var(--font-tajawal), var(--font-sans), sans-serif;
   }
 }
+
 
 /* ─── Custom Utilities ──────────────────────────────────────── */
 @layer utilities {
@@ -142,16 +148,120 @@
   }
 }
 
+@keyframes scroll-right {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(50%);
+  }
+}
+
 .scroller-track {
   display: flex;
   gap: 3rem;
   align-items: center;
   width: max-content;
   animation: scroll-left 30s linear infinite;
+  will-change: transform;
+}
+
+html[dir="rtl"] .scroller-track {
+  animation-name: scroll-right;
 }
 
 .scroller-track:hover {
   animation-play-state: paused;
+}
+
+/* ─── CSS entrance animations (replaces Framer Motion for below-fold) ── */
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-up-sm {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scale-up {
+  from {
+    opacity: 0;
+    transform: translateY(24px) scale(0.97);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.animate-fade-up {
+  opacity: 0;
+  animation: fade-up 0.5s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+}
+
+.animate-fade-up-sm {
+  opacity: 0;
+  animation: fade-up-sm 0.35s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+}
+
+.animate-scale-up {
+  opacity: 0;
+  animation: scale-up 0.45s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+}
+
+/* Elements start invisible; JS adds .in-view to trigger the animation */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.5s cubic-bezier(0.23, 1, 0.32, 1),
+    transform 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.reveal.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-sm {
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 0.35s cubic-bezier(0.23, 1, 0.32, 1),
+    transform 0.35s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.reveal-sm.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-card {
+  opacity: 0;
+  transform: translateY(24px) scale(0.97);
+  transition: opacity 0.45s cubic-bezier(0.23, 1, 0.32, 1),
+    transform 0.45s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.reveal-card.in-view {
+  opacity: 1;
+  transform: translateY(0) scale(1);
 }
 
 /* ─── Details / FAQ animation ───────────────────────────────── */
