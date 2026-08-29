@@ -1,8 +1,8 @@
 export const en = {
   nav: {
     logoAlt: "MedBX Logo",
-    about: "About",
     sectors: "Sectors",
+    value: "Services",
     news: "News & Announcements",
     schedule: "Schedule",
     sponsors: "Sponsors",
@@ -159,7 +159,6 @@ export const en = {
     tiers: [
       {
         id: "strategic",
-        tag: "Strategic Sponsor",
         name: "Strategic Sponsor (500,000 SAR)",
         description:
           "Comprehensive sponsorship featuring a 10×10m booth, 10M view campaign, opening ceremony keynote speech, and official press conference.",
@@ -183,7 +182,6 @@ export const en = {
       },
       {
         id: "diamond",
-        tag: "The Diamond Sponsor",
         name: "The Diamond Sponsor (350,000 SAR)",
         description:
           "Elite sponsorship featuring an 8×10m booth, 10M view campaign with 3×4 logo sizing, TV report, and promotion via 4 major influencers.",
@@ -206,7 +204,6 @@ export const en = {
       },
       {
         id: "golden",
-        tag: "Golden Sponsor",
         name: "Golden Sponsor (200,000 SAR)",
         description:
           "Strong presence featuring a 9×6m booth (54 sqm), 2×3 logo highlight across prints, opening promo, and 10M view digital campaign.",
@@ -229,7 +226,6 @@ export const en = {
       },
       {
         id: "participating",
-        tag: "Participating Sponsor",
         name: "Participating Sponsor (50,000 SAR)",
         description:
           "Essential package featuring a 3×4m booth (12 sqm), 1×2 logo placement, digital newspaper ads, TV report, and official forum access.",
@@ -458,6 +454,66 @@ export const en = {
         summary: "New logistical and technical guidelines for participating companies and institutions.",
         content: "The forum operations team has released the updated 2027 Exhibitor Manual, detailing booth design specifications, freight logistics, equipment setup, and tech support services available for sponsors and exhibitors."
       }
+    ]
+  },
+  participation: {
+    title: "Exhibition Participation",
+    subtitle: "Choose your track and explore strategic participation opportunities at MedBX Forum 2027.",
+    learnMore: "Explore Track",
+    cards: [
+      {
+        id: "exhibitors",
+        title: "Exhibitors",
+        subtitle: "Exhibition Spaces",
+        desc: "Book exhibition booths to showcase biomedical devices and healthcare technologies to 20,000+ professionals.",
+        href: "/sponsors",
+        bgColor: "bg-[#0c2a27]",
+        stripeColor: "bg-emerald-400/20"
+      },
+      {
+        id: "sponsors",
+        title: "Sponsors",
+        subtitle: "Sponsorship Packages",
+        desc: "Strategic and Diamond sponsorship packages featuring prominent media campaigns targeting 10M+ views.",
+        href: "/sponsors",
+        bgColor: "bg-[#092932]",
+        stripeColor: "bg-teal-400/20"
+      },
+      {
+        id: "partners",
+        title: "Partners",
+        subtitle: "Strategic Alliances",
+        desc: "Build strategic partnerships and sign MOUs between clinical, research, and institutional leaders.",
+        href: "/value",
+        bgColor: "bg-[#182338]",
+        stripeColor: "bg-cyan-400/20"
+      },
+      {
+        id: "visitors",
+        title: "Visitors",
+        subtitle: "Forum Access Pass",
+        desc: "Attend expert panels, interactive workshops, and explore medical employment & health tech innovations.",
+        href: "/value",
+        bgColor: "bg-[#00292f]",
+        stripeColor: "bg-teal-300/20"
+      }
+    ]
+  },
+  mediaPartners: {
+    title: "Media Partners & Broadcasting Channels",
+    items: [
+      { name: "Media Partner 1", image: "/media (1).png" },
+      { name: "Media Partner 2", image: "/media (2).png" },
+      { name: "Media Partner 3", image: "/media (3).png" },
+      { name: "Media Partner 4", image: "/media (4).png" },
+      { name: "Media Partner 5", image: "/media (5).png" },
+      { name: "Media Partner 6", image: "/media (6).png" },
+      { name: "Media Partner 7", image: "/media (7).png" },
+      { name: "Media Partner 8", image: "/media (8).png" },
+      { name: "Media Partner 9", image: "/media (9).png" },
+      { name: "Media Partner 10", image: "/media (10).png" },
+      { name: "Media Partner 11", image: "/media (11).png" },
+      { name: "Media Partner 12", image: "/media (12).png" },
     ]
   }
 };

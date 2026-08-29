@@ -1,6 +1,7 @@
 "use client";
 
 import { useLanguage } from "../context/LanguageContext";
+import { usePathname, useRouter } from "next/navigation";
 import {
   FaInstagram,
   FaLinkedinIn,
@@ -12,27 +13,50 @@ import { LuPhone, LuMail, LuMapPin, LuArrowUpRight } from "react-icons/lu";
 
 export default function ContactFooter() {
   const { t, locale } = useLanguage();
+  const pathname = usePathname();
+  const router = useRouter();
 
   const handleSmoothScroll = (
     e: React.MouseEvent<HTMLAnchorElement>,
     href: string
   ) => {
     e.preventDefault();
-    if (href === "#") {
-      window.scrollTo({ top: 0, behavior: "smooth" });
+    if (href === "/sponsors" || href === "/news" || href === "/value") {
+      if (pathname === href) {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      } else {
+        router.push(href);
+      }
       return;
     }
-    const targetElement = document.querySelector(href);
-    if (targetElement) {
-      targetElement.scrollIntoView({ behavior: "smooth" });
+
+    if (href === "#") {
+      if (pathname === "/") {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      } else {
+        router.push("/");
+      }
+      return;
+    }
+
+    if (href.startsWith("#")) {
+      if (pathname === "/") {
+        const targetElement = document.querySelector(href);
+        if (targetElement) {
+          targetElement.scrollIntoView({ behavior: "smooth" });
+        }
+      } else {
+        router.push(`/${href}`);
+      }
     }
   };
 
   const navLinks = [
-    { label: t.nav.about, href: "#about" },
     { label: t.nav.sectors, href: "#sectors" },
+    { label: t.nav.value, href: "/value" },
+    { label: t.nav.news, href: "/news" },
     { label: t.nav.schedule, href: "#schedule" },
-    { label: t.nav.sponsors, href: "#sponsors" },
+    { label: t.nav.sponsors, href: "/sponsors" },
     { label: t.contactFooter.faqLink, href: "#faq" },
   ];
 

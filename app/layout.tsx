@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Plus_Jakarta_Sans, Tajawal } from "next/font/google";
 import { LanguageProvider } from "./context/LanguageContext";
 import "./globals.css";
+import Navbar from "./components/Navbar";
+import ContactFooter from "./components/ContactFooter";
 
 const plusJakartaSans = Plus_Jakarta_Sans({
   subsets: ["latin"],
@@ -40,7 +42,11 @@ export default function RootLayout({
       className={`${plusJakartaSans.variable} ${tajawal.variable}`}
     >
       <body className="antialiased" suppressHydrationWarning>
-        <LanguageProvider>{children}</LanguageProvider>
+        <LanguageProvider>
+          <Navbar />
+          {children}
+          <ContactFooter />
+        </LanguageProvider>
       </body>
     </html>
   );

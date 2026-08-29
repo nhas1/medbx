@@ -1,7 +1,9 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { useState, useEffect } from "react";
+import { usePathname, useRouter } from "next/navigation";
 import { LazyMotion, domAnimation, m, AnimatePresence } from "framer-motion";
 import { HiLanguage, HiBars3, HiXMark } from "react-icons/hi2";
 import { useLanguage } from "../context/LanguageContext";
@@ -10,6 +12,8 @@ export default function Navbar() {
   const { t, toggleLocale } = useLanguage();
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const pathname = usePathname();
+  const router = useRouter();
 
   useEffect(() => {
     const handler = () => setScrolled(window.scrollY > 60);
@@ -18,11 +22,10 @@ export default function Navbar() {
   }, []);
 
   const navLinks = [
-    { label: t.nav.about, href: "#about" },
     { label: t.nav.sectors, href: "#sectors" },
-    { label: t.nav.news, href: "#news" },
-    { label: t.nav.schedule, href: "#schedule" },
-    { label: t.nav.sponsors, href: "#sponsors" },
+    { label: t.nav.value, href: "/value" },
+    { label: t.nav.news, href: "/news" },
+    { label: t.nav.sponsors, href: "/sponsors" },
     { label: t.nav.contact, href: "#contact" },
   ];
 
@@ -32,13 +35,34 @@ export default function Navbar() {
   ) => {
     e.preventDefault();
     setMenuOpen(false);
-    if (href === "#") {
-      window.scrollTo({ top: 0, behavior: "smooth" });
+
+    if (href === "/" || href === "#") {
+      if (pathname === "/") {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      } else {
+        router.push("/");
+      }
       return;
     }
-    const targetElement = document.querySelector(href);
-    if (targetElement) {
-      targetElement.scrollIntoView({ behavior: "smooth" });
+
+    if (href === "/sponsors" || href === "/news" || href === "/value") {
+      if (pathname === href) {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      } else {
+        router.push(href);
+      }
+      return;
+    }
+
+    if (href.startsWith("#")) {
+      if (pathname === "/") {
+        const targetElement = document.querySelector(href);
+        if (targetElement) {
+          targetElement.scrollIntoView({ behavior: "smooth" });
+        }
+      } else {
+        router.push(`/${href}`);
+      }
     }
   };
 
@@ -47,16 +71,16 @@ export default function Navbar() {
       <header
         className={[
           "fixed top-0 left-0 right-0 z-50 transition-colors duration-300",
-          scrolled
+          scrolled || pathname !== "/"
             ? "bg-[var(--color-surface)]/95 backdrop-blur-md shadow-clinical border-b border-[var(--color-outline-variant)]/30"
             : "bg-transparent",
         ].join(" ")}
       >
         <div className="max-w-[1440px] mx-auto px-8 md:px-10 h-20 flex items-center justify-between">
           {/* Brand */}
-          <a
-            href="#"
-            onClick={(e) => handleNavClick(e, "#")}
+          <Link
+            href="/"
+            onClick={(e) => handleNavClick(e, "/")}
             className="flex items-center gap-2 font-bold text-xl tracking-tight group"
             aria-label={t.nav.logoAlt}
           >
@@ -69,27 +93,33 @@ export default function Navbar() {
               className="object-contain w-[120px] h-auto"
               sizes="120px"
             />
-          </a>
+          </Link>
 
           {/* Desktop Nav */}
           <nav className="hidden md:flex items-center gap-8 text-sm font-medium">
-            {navLinks.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                onClick={(e) => handleNavClick(e, link.href)}
-                className={[
-                  "relative pb-0.5 transition-opacity duration-200 hover:opacity-70",
-                  "after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-current",
-                  "after:transition-all after:duration-300 hover:after:w-full",
-                  scrolled
-                    ? "text-[var(--color-on-surface-variant)]"
-                    : "text-white",
-                ].join(" ")}
-              >
-                {link.label}
-              </a>
-            ))}
+            {navLinks.map((link) => {
+              const isActive = link.href === pathname;
+
+              return (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  onClick={(e) => handleNavClick(e, link.href)}
+                  className={[
+                    "relative pb-0.5 transition-opacity duration-200 hover:opacity-70",
+                    "after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-current",
+                    "after:transition-all after:duration-300 hover:after:w-full",
+                    isActive
+                      ? "text-[var(--color-secondary)] font-semibold after:w-full"
+                      : scrolled || pathname !== "/"
+                        ? "text-[var(--color-on-surface-variant)]"
+                        : "text-white",
+                  ].join(" ")}
+                >
+                  {link.label}
+                </a>
+              );
+            })}
           </nav>
 
           {/* Actions */}
@@ -98,10 +128,7 @@ export default function Navbar() {
               onClick={toggleLocale}
               id="nav-lang-toggle"
               className={[
-                "flex items-center gap-1.5 text-xs font-semibold border px-3.5 py-2 rounded-md transition-all duration-200 cursor-pointer hover:scale-[1.02] active:scale-[0.97]",
-                scrolled
-                  ? "border-[var(--color-primary)]/30 text-[var(--color-primary)] hover:bg-[var(--color-primary)]/5"
-                  : "border-white/30 text-white hover:bg-white/10",
+                "flex items-center gap-1.5 text-xs font-semibold border px-3.5 py-2 rounded-md transition-all duration-200 cursor-pointer hover:scale-[1.02] active:scale-[0.97] border-[var(--color-primary)]/50 text-[var(--color-primary)] hover:bg-[var(--color-primary)]/5"
               ].join(" ")}
               title="Switch Language"
             >

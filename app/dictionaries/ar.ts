@@ -3,8 +3,8 @@ import { Dictionary } from "./en";
 export const ar: Dictionary = {
   nav: {
     logoAlt: "شعار ميدبيكس",
-    about: "عن المنتدى",
     sectors: "القطاعات",
+    value: "الخدمات",
     news: "الأخبار والإعلانات",
     schedule: "الجدول الزمني",
     sponsors: "الرعاة",
@@ -114,7 +114,7 @@ export const ar: Dictionary = {
     ],
   },
   schedule: {
-    title: "الجدول الزمني للملتقى",
+    title: "الجدول الزمني للمنتدى ",
     subtitle: "ثلاثة أيام من التواصل المكثف والتعلم والتعاون المتبادل.",
     day1: "اليوم الأول",
     day2: "اليوم الثاني",
@@ -161,8 +161,7 @@ export const ar: Dictionary = {
     tiers: [
       {
         id: "strategic",
-        tag: "الراعي الاستراتيجي",
-        name: "الراعي الاستراتيجي (Strategic Sponsor)",
+        name: "الراعي الاستراتيجي",
         description:
           "شراكة متكاملة تمنح بوث 10×10م، إبراز الشعار بحجم 4×5 في الحملات التي تستهدف 10 ملايين مشاهدة، كلمة رسمية في حفل الافتتاح، ومؤتمر صحفي.",
         price: "500,000",
@@ -185,7 +184,6 @@ export const ar: Dictionary = {
       },
       {
         id: "diamond",
-        tag: "الراعي الماسي",
         name: "الراعي الماسي",
         description:
           "رعاية متميزة بوث 8×10م، إبراز الشعار بحجم 3×4 في حملة 10 ملايين مشاهدة، تقرير تلفزيوني، والتسويق عبر 4 من أشهر المؤثرين.",
@@ -209,8 +207,7 @@ export const ar: Dictionary = {
       },
       {
         id: "golden",
-        tag: "الراعي الذهبي",
-        name: "الراعي الذهبي (Golden Sponsor)",
+        name: "الراعي الذهبي",
         description:
           "رعاية ذهبية تمنح بوث بمقاس 9×6م، إبراز الشعار بحجم 2×3 في المطبوعات والحملات الرقمية المستهدفة لـ 10 ملايين مشاهدة.",
         price: "200,000",
@@ -233,8 +230,7 @@ export const ar: Dictionary = {
       },
       {
         id: "participating",
-        tag: "الراعي المشارك",
-        name: "الراعي المشارك (Participating Sponsor)",
+        name: "الراعي المشارك",
         description:
           "مشاركة أساسية تمنح بوث بمقاس 3×4م، إبراز الشعار بحجم 1×2 في المطبوعات، تقرير تلفزيوني ودعوة شخصية للمنتدى.",
         price: "50,000",
@@ -416,7 +412,7 @@ export const ar: Dictionary = {
         id: "news-2",
         categoryKey: "announcements",
         categoryLabel: "الإعلانات",
-        title: "انضمام أكثر من 50 شركة عالمية في قطاع التقنية الطبية للملتقى",
+        title: "انضمام أكثر من 50 شركة عالمية في قطاع التقنية الطبية للمنتدى ",
         source: "PRESS.MEDBX.SA",
         date: "18 أغسطس 2027",
         summary: "مشاركة واسعة من كبرى الشركات العالمية لاستعراض أحدث الأجهزة والحلول الرقمية.",
@@ -446,11 +442,11 @@ export const ar: Dictionary = {
         id: "news-5",
         categoryKey: "announcements",
         categoryLabel: "الإعلانات",
-        title: "الإعلان عن قائمة المتحدثين الرئيسيين في الحفل الافتتاحي للملتقى",
+        title: "الإعلان عن قائمة المتحدثين الرئيسيين في الحفل الافتتاحي للمنتدى ",
         source: "SPEAKERS.MEDBX.SA",
         date: "28 يوليو 2027",
         summary: "نخب ومسؤولون دوليون يشاركون في صياغة مستقبل التكنولوجيا الصحية بالمنطقة.",
-        content: "تم كشف النقاب عن الأسماء البارزة المشاركة كمتحدثين رئيسيين في اليوم الأول للملتقى، وتضم القائمة نخبة من الوزراء والخبراء والمدراء التنفيذيين لكبرى الشركات الطبية العالمية والمبتكرين في الرعاية الصحية."
+        content: "تم كشف النقاب عن الأسماء البارزة المشاركة كمتحدثين رئيسيين في اليوم الأول للمنتدى ، وتضم القائمة نخبة من الوزراء والخبراء والمدراء التنفيذيين لكبرى الشركات الطبية العالمية والمبتكرين في الرعاية الصحية."
       },
       {
         id: "news-6",
@@ -462,6 +458,66 @@ export const ar: Dictionary = {
         summary: "إرشادات لوجستية وفنية جديدة مخصصة للشركات والمؤسسات المشاركة بالمعرض.",
         content: "أصدرت إدارة التجهيزات بالمنتدى دليل العارضين المحدث لعام 2027، والذي يوضح آلية تصميم وشحن وتجميع البوثات، إضافة إلى الخدمات التقنية واللوجستية المتاحة لكل راعٍ وعارض لتسهيل تجربتهم خلال فترة المعرض."
       }
+    ]
+  },
+  participation: {
+    title: "المشاركة في المعرض",
+    subtitle: "اختر مسار مشاركتك المناسب واستكشف الفرص المتاحة في منتدى ميدبكس 2027.",
+    learnMore: "استكشف المسار",
+    cards: [
+      {
+        id: "exhibitors",
+        title: "العارضين",
+        subtitle: "مساحات المعرض",
+        desc: "حجز المساحات والبوثات في المعرض لعرض التقنيات والأجهزة الطبية المتطورة ومقابلة أكثر من 20,000 متخصص.",
+        href: "/sponsors",
+        bgColor: "bg-[#0c2a27]",
+        stripeColor: "bg-emerald-400/20"
+      },
+      {
+        id: "sponsors",
+        title: "الرعاة",
+        subtitle: "باقات الرعاية",
+        desc: "باقات رعاية استراتيجية وماسية تضمن لك إبراز الشعار وتغطية إعلامية تتجاوز 10 ملايين مشاهدة.",
+        href: "/sponsors",
+        bgColor: "bg-[#092932]",
+        stripeColor: "bg-teal-400/20"
+      },
+      {
+        id: "partners",
+        title: "الشركاء",
+        subtitle: "الشراكات الاستراتيجية",
+        desc: "بناء شراكات استراتيجية وتوقيع مذكرات تفاهم بين قطاعات الرعاية السريرية، الأكاديمية والصحية.",
+        href: "/value",
+        bgColor: "bg-[#182338]",
+        stripeColor: "bg-cyan-400/20"
+      },
+      {
+        id: "visitors",
+        title: "الزوار",
+        subtitle: "بطاقات الحضور",
+        desc: "حضور المؤتمرات العلمية والورش التفاعلية، والاطلاع على أحدث مستجدات الابتكار والتوظيف الطبي.",
+        href: "/value",
+        bgColor: "bg-[#00292f]",
+        stripeColor: "bg-teal-300/20"
+      }
+    ]
+  },
+  mediaPartners: {
+    title: "الشركاء الإعلاميون والقنوات الناقلة",
+    items: [
+      { name: "Media Partner 1", image: "/media (1).png" },
+      { name: "Media Partner 2", image: "/media (2).png" },
+      { name: "Media Partner 3", image: "/media (3).png" },
+      { name: "Media Partner 4", image: "/media (4).png" },
+      { name: "Media Partner 5", image: "/media (5).png" },
+      { name: "Media Partner 6", image: "/media (6).png" },
+      { name: "Media Partner 7", image: "/media (7).png" },
+      { name: "Media Partner 8", image: "/media (8).png" },
+      { name: "Media Partner 9", image: "/media (9).png" },
+      { name: "Media Partner 10", image: "/media (10).png" },
+      { name: "Media Partner 11", image: "/media (11).png" },
+      { name: "Media Partner 12", image: "/media (12).png" },
     ]
   }
 };

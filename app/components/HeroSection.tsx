@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { LazyMotion, domAnimation, m } from "framer-motion";
 import { LuCalendarDays } from "react-icons/lu";
 import { useLanguage } from "../context/LanguageContext";
@@ -84,18 +85,20 @@ export default function HeroSection() {
                   {t.hero.registerVisitor}
                 </m.button>
 
-                <m.button
-                  id="hero-sponsor"
-                  whileHover={{
-                    y: -2,
-                    backgroundColor: "rgba(255, 255, 255, 0.1)",
-                  }}
-                  whileTap={{ scale: 0.98 }}
-                  transition={{ duration: 0.2, ease: customEase }}
-                  className="bg-transparent border border-white/40 text-white px-8 py-3.5 rounded-md font-semibold cursor-pointer"
-                >
-                  {t.hero.participateSponsor}
-                </m.button>
+                <Link href="/sponsors">
+                  <m.button
+                    id="hero-sponsor"
+                    whileHover={{
+                      y: -2,
+                      backgroundColor: "rgba(255, 255, 255, 0.1)",
+                    }}
+                    whileTap={{ scale: 0.98 }}
+                    transition={{ duration: 0.2, ease: customEase }}
+                    className="bg-transparent border border-white/40 text-white px-8 py-3.5 rounded-md font-semibold cursor-pointer"
+                  >
+                    {t.hero.participateSponsor}
+                  </m.button>
+                </Link>
               </div>
             </div>
 
