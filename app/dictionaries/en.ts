@@ -3,6 +3,7 @@ export const en = {
     logoAlt: "MedBX Logo",
     about: "About",
     sectors: "Sectors",
+    news: "News & Announcements",
     schedule: "Schedule",
     sponsors: "Sponsors",
     contact: "Contact",
@@ -304,6 +305,161 @@ export const en = {
     copyright: "© 2024 MedBX. All Rights Reserved. Organizers: Nhas Holding, RIEP.",
     poweredBy: "Powered by Clinical Innovation Design System",
   },
+  value: {
+    visitorsEyebrow: "For Visitors",
+    visitorsTitle: "What MedBX Offers You",
+    visitorsDesc:
+      "MedBX Forum gives visitors a valuable opportunity to explore the latest innovations and trends in the healthcare sector, as well as direct engagement with leading experts and companies.",
+    visitorsStatLabel: "core benefits designed for every visitor",
+    visitorBenefits: [
+      {
+        title: "Specialized Knowledge",
+        desc: "Enriching scientific and practical expertise with the latest medical research.",
+      },
+      {
+        title: "Direct Professional Networking",
+        desc: "Exclusive opportunities to connect directly with industry leaders and experts.",
+      },
+      {
+        title: "Innovative Medical Solutions",
+        desc: "Up-close exploration of next-generation health technologies and products.",
+      },
+      {
+        title: "Investment Opportunities",
+        desc: "Discovering promising healthcare ventures and investment prospects.",
+      },
+      {
+        title: "Impactful Network",
+        desc: "Building strategic connections with key decision-makers and healthcare professionals.",
+      },
+    ],
+    companiesEyebrow: "For Companies",
+    companiesTitle: "Strategic Value for Your Organization",
+    companiesDesc:
+      "The forum is a comprehensive strategic platform to strengthen your company's presence in regional and local markets, showcase your latest products and services, and build close communication channels with partners, investors, and potential clients.",
+    companyBenefits: [
+      {
+        title: "Corporate Identity",
+        desc: "Highlighting your company's role in supporting social responsibility and national development.",
+      },
+      {
+        title: "Access to New Markets",
+        desc: "Expanding business reach and unlocking new regional market opportunities.",
+      },
+      {
+        title: "Strategic Partnerships",
+        desc: "Building strong, sustainable partnerships with key industry leaders and decision-makers.",
+      },
+      {
+        title: "Attracting Clients & Investors",
+        desc: "Engaging a wide audience of clients and investors interested in innovative medical solutions.",
+      },
+      {
+        title: "Growth & Expansion",
+        desc: "Accelerating growth opportunities and extending the presence of your services and products.",
+      },
+    ],
+    servicesEyebrow: "Services & Facilities",
+    servicesTitle: "A Complete Experience, Start to Finish",
+    servicesDesc:
+      "The forum provides a comprehensive system of advanced facilitation services to ensure a professional, comfortable, and seamless attendance experience for all participants, exhibitors, and visitors.",
+    services: [
+      {
+        title: "Digital Registration",
+        desc: "An integrated, simplified technical system for ticket issuance and pre-registration.",
+      },
+      {
+        title: "State-of-the-Art Halls",
+        desc: "Equipped with the latest technology to support workshops, lectures, and interactive presentations.",
+      },
+      {
+        title: "Reception & Guidance",
+        desc: "Qualified organizational staff to facilitate attendee movement and navigation throughout the exhibition.",
+      },
+      {
+        title: "Technical & Translation Support",
+        desc: "Ensuring logistical barriers are removed and knowledge exchange is facilitated across all nationalities.",
+      },
+      {
+        title: "B2B Meeting Zones",
+        desc: "Quiet, dedicated spaces designed for bilateral discussions, MOU signings, and partnership meetings.",
+      },
+    ],
+  },
+  news: {
+    title: "News & Announcements",
+    subtitle: "Comprehensive updates, official announcements, registration news, and event highlights.",
+    categories: {
+      all: "ALL",
+      exhibitionNews: "Exhibition News",
+      announcements: "Announcements",
+      registrationUpdates: "Registration Updates",
+    },
+    readMore: "READ MORE",
+    closeModal: "Close",
+    items: [
+      {
+        id: "news-1",
+        categoryKey: "exhibitionNews",
+        categoryLabel: "Exhibition News",
+        title: "LAUNCH OF THE NATIONAL HEALTH INNOVATION INITIATIVE AT MEDBX 2027",
+        source: "MEDBX.SA",
+        date: "August 25, 2027",
+        summary: "The forum secretariat announces a dedicated track for promising national health initiatives.",
+        content: "MedBX Forum is pleased to announce the launch of the National Health Innovation Initiative, aimed at connecting investors and medical companies with researchers and innovators across Saudi Arabia. The initiative includes specialized workshops, seed funding for promising projects, and direct access to international health leaders."
+      },
+      {
+        id: "news-2",
+        categoryKey: "announcements",
+        categoryLabel: "Announcements",
+        title: "OVER 50 GLOBAL HEALTHTECH COMPANIES JOIN MEDBX FORUM 2027",
+        source: "PRESS.MEDBX.SA",
+        date: "August 18, 2027",
+        summary: "Broad participation from global leaders showcasing the latest medical devices and digital solutions.",
+        content: "Participation of over 50 leading global and local companies specializing in medical AI, biomedical devices, and digital health has been confirmed. The exhibition floor will feature new product launches showcased for the first time in the Middle East."
+      },
+      {
+        id: "news-3",
+        categoryKey: "registrationUpdates",
+        categoryLabel: "Registration Updates",
+        title: "EARLY BIRD REGISTRATION NOW OPEN FOR MEDBX WORKSHOPS & SESSIONS",
+        source: "REGISTRATION.MEDBX.SA",
+        date: "August 10, 2027",
+        summary: "Visitors and healthcare professionals can now register and reserve seats for interactive sessions.",
+        content: "The organizing committee has opened early bird registration for all healthcare practitioners, investors, and students. Early registration provides digital passes, access to B2B matchmaking sessions, and reserved entry to specialized interactive workshops."
+      },
+      {
+        id: "news-4",
+        categoryKey: "exhibitionNews",
+        categoryLabel: "Exhibition News",
+        title: "STRATEGIC MOUS SIGNED BETWEEN CLINICAL AND ACADEMIC SECTORS",
+        source: "MEDBX.SA",
+        date: "August 02, 2027",
+        summary: "New partnerships aiming to bridge medical research and specialized clinical training.",
+        content: "As part of the forum's mission to strengthen national partnerships, the event will feature the signing of key MOUs between leading hospitals, research centers, and Saudi universities to bolster clinical employment and specialized talent development."
+      },
+      {
+        id: "news-5",
+        categoryKey: "announcements",
+        categoryLabel: "Announcements",
+        title: "KEYNOTE SPEAKERS ANNOUNCED FOR MEDBX OPENING CEREMONY",
+        source: "SPEAKERS.MEDBX.SA",
+        date: "July 28, 2027",
+        summary: "International leaders gather to shape the future of health technology in the region.",
+        content: "Distinguished speakers for the opening ceremony have been unveiled, featuring ministers, global health tech executives, researchers, and pioneers driving digital transformation across healthcare systems."
+      },
+      {
+        id: "news-6",
+        categoryKey: "registrationUpdates",
+        categoryLabel: "Registration Updates",
+        title: "UPDATED EXHIBITOR GUIDELINES RELEASED FOR BOOTHS & PAVILIONS",
+        source: "EXHIBITORS.MEDBX.SA",
+        date: "July 15, 2027",
+        summary: "New logistical and technical guidelines for participating companies and institutions.",
+        content: "The forum operations team has released the updated 2027 Exhibitor Manual, detailing booth design specifications, freight logistics, equipment setup, and tech support services available for sponsors and exhibitors."
+      }
+    ]
+  }
 };
 
 export type Dictionary = typeof en;

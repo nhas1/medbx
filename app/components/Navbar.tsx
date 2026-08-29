@@ -20,6 +20,7 @@ export default function Navbar() {
   const navLinks = [
     { label: t.nav.about, href: "#about" },
     { label: t.nav.sectors, href: "#sectors" },
+    { label: t.nav.news, href: "#news" },
     { label: t.nav.schedule, href: "#schedule" },
     { label: t.nav.sponsors, href: "#sponsors" },
     { label: t.nav.contact, href: "#contact" },

@@ -7,6 +7,8 @@ import HeroSection from "./components/HeroSection";
 const PartnersScroller = dynamic(() => import("./components/PartnersScroller"));
 const AboutSection = dynamic(() => import("./components/AboutSection"));
 const SectorsSection = dynamic(() => import("./components/SectorsSection"));
+const ValueSection = dynamic(() => import("./components/ValueSection"));
+const NewsSection = dynamic(() => import("./components/NewsSection"));
 const ScheduleSection = dynamic(() => import("./components/ScheduleSection"));
 const SponsorsSection = dynamic(() => import("./components/SponsorsSection"));
 const FaqSection = dynamic(() => import("./components/FaqSection"));
@@ -30,9 +32,11 @@ export default function Home() {
         <PartnersScroller />
         <AboutSection />
         <SectorsSection />
-        {/* <ScheduleSection />
+        <ValueSection />
+        <NewsSection />
+        <ScheduleSection />
         <SponsorsSection />
-        <FaqSection /> */}
+        <FaqSection />
       </main>
 
       <ContactFooter />

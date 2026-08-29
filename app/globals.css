@@ -72,7 +72,9 @@
 
 /* ─── Base Styles ───────────────────────────────────────────── */
 @layer base {
-  html, body {
+
+  html,
+  body {
     scroll-behavior: smooth !important;
   }
 
