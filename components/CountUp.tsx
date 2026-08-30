@@ -1,5 +1,18 @@
-import { useInView, useMotionValue, useSpring } from 'motion/react';
+import { useInView, useMotionValue, useSpring } from 'framer-motion';
 import { useCallback, useEffect, useRef } from 'react';
+
+interface CountUpProps {
+  to: number | string;
+  from?: number;
+  direction?: 'up' | 'down';
+  delay?: number;
+  duration?: number;
+  className?: string;
+  startWhen?: boolean;
+  separator?: string;
+  onStart?: () => void;
+  onEnd?: () => void;
+}
 
 export default function CountUp({
   to,
@@ -11,45 +24,43 @@ export default function CountUp({
   startWhen = true,
   separator = '',
   onStart,
-  onEnd
-}) {
-  const ref = useRef(null);
-  const motionValue = useMotionValue(direction === 'down' ? to : from);
+  onEnd,
+}: CountUpProps) {
+  const ref = useRef<HTMLSpanElement>(null);
+  const targetNumber = typeof to === 'string' ? parseFloat(to.replace(/,/g, '')) || 0 : to;
+  const motionValue = useMotionValue(direction === 'down' ? targetNumber : from);
 
   const damping = 20 + 40 * (1 / duration);
   const stiffness = 100 * (1 / duration);
 
   const springValue = useSpring(motionValue, {
     damping,
-    stiffness
+    stiffness,
   });
 
   const isInView = useInView(ref, { once: true, margin: '0px' });
 
-  const getDecimalPlaces = num => {
+  const getDecimalPlaces = (num: number) => {
     const str = num.toString();
-
     if (str.includes('.')) {
       const decimals = str.split('.')[1];
-
-      if (parseInt(decimals) !== 0) {
+      if (parseInt(decimals, 10) !== 0) {
         return decimals.length;
       }
     }
-
     return 0;
   };
 
-  const maxDecimals = Math.max(getDecimalPlaces(from), getDecimalPlaces(to));
+  const maxDecimals = Math.max(getDecimalPlaces(from), getDecimalPlaces(targetNumber));
 
   const formatValue = useCallback(
-    latest => {
+    (latest: number) => {
       const hasDecimals = maxDecimals > 0;
 
-      const options = {
+      const options: Intl.NumberFormatOptions = {
         useGrouping: !!separator,
         minimumFractionDigits: hasDecimals ? maxDecimals : 0,
-        maximumFractionDigits: hasDecimals ? maxDecimals : 0
+        maximumFractionDigits: hasDecimals ? maxDecimals : 0,
       };
 
       const formattedNumber = Intl.NumberFormat('en-US', options).format(latest);
@@ -61,16 +72,16 @@ export default function CountUp({
 
   useEffect(() => {
     if (ref.current) {
-      ref.current.textContent = formatValue(direction === 'down' ? to : from);
+      ref.current.textContent = formatValue(direction === 'down' ? targetNumber : from);
     }
-  }, [from, to, direction, formatValue]);
+  }, [from, targetNumber, direction, formatValue]);
 
   useEffect(() => {
     if (isInView && startWhen) {
       if (typeof onStart === 'function') onStart();
 
       const timeoutId = setTimeout(() => {
-        motionValue.set(direction === 'down' ? from : to);
+        motionValue.set(direction === 'down' ? from : targetNumber);
       }, delay * 1000);
 
       const durationTimeoutId = setTimeout(
@@ -85,10 +96,10 @@ export default function CountUp({
         clearTimeout(durationTimeoutId);
       };
     }
-  }, [isInView, startWhen, motionValue, direction, from, to, delay, onStart, onEnd, duration]);
+  }, [isInView, startWhen, motionValue, direction, from, targetNumber, delay, onStart, onEnd, duration]);
 
   useEffect(() => {
-    const unsubscribe = springValue.on('change', latest => {
+    const unsubscribe = springValue.on('change', (latest: number) => {
       if (ref.current) {
         ref.current.textContent = formatValue(latest);
       }

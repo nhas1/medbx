@@ -114,7 +114,7 @@ export default function HeroSection() {
                     to={stat.value}
                     separator=","
                     direction="up"
-                    duration={0.1}
+                    duration={.1}
                     className="text-white text-4xl font-light"
                     delay={0}
                   />
