@@ -5,7 +5,7 @@ import Link from "next/link";
 import { LazyMotion, domAnimation, m } from "framer-motion";
 import { LuCalendarDays } from "react-icons/lu";
 import { useLanguage } from "../context/LanguageContext";
-
+import CountUp from '../../components/CountUp'
 const customEase = [0.23, 1, 0.32, 1] as const;
 
 export default function HeroSection() {
@@ -109,7 +109,16 @@ export default function HeroSection() {
                   <p className="text-white/60 text-xs font-semibold uppercase tracking-wider mb-1">
                     {stat.label}
                   </p>
-                  <p className="text-white text-4xl font-light">{stat.value}</p>
+                  <CountUp
+                    from={0}
+                    to={stat.value}
+                    separator=","
+                    direction="up"
+                    duration={0.1}
+                    className="text-white text-4xl font-light"
+                    delay={0}
+                  />
+                  <span className="text-white text-4xl font-light">{stat.suffix}</span>
                 </div>
               ))}
             </div>

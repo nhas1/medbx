@@ -24,10 +24,10 @@ export const ar: Dictionary = {
     registerVisitor: "سجل كزائر",
     participateSponsor: "شارك كراعٍ",
     stats: [
-      { label: "زائر ومشارك", value: "+20,000" },
-      { label: "مساحة المعرض", value: "18,000 م²" },
-      { label: "جهة عارضة", value: "+150" },
-      { label: "متحدث وخبير", value: "+50" },
+      { label: "زائر ومشارك", value: "20000", suffix: "+" },
+      { label: "مساحة المعرض", value: "18000", suffix: "م²" },
+      { label: "جهة عارضة", value: "150", suffix: "+" },
+      { label: "متحدث وخبير", value: "50", suffix: "+" },
     ],
   },
   partners: {
@@ -470,7 +470,7 @@ export const ar: Dictionary = {
         title: "العارضين",
         subtitle: "مساحات المعرض",
         desc: "حجز المساحات والبوثات في المعرض لعرض التقنيات والأجهزة الطبية المتطورة ومقابلة أكثر من 20,000 متخصص.",
-        href: "/sponsors",
+        href: "/",
         bgColor: "bg-[#0c2a27]",
         stripeColor: "bg-emerald-400/20"
       },
@@ -479,7 +479,7 @@ export const ar: Dictionary = {
         title: "الرعاة",
         subtitle: "باقات الرعاية",
         desc: "باقات رعاية استراتيجية وماسية تضمن لك إبراز الشعار وتغطية إعلامية تتجاوز 10 ملايين مشاهدة.",
-        href: "/sponsors",
+        href: "/",
         bgColor: "bg-[#092932]",
         stripeColor: "bg-teal-400/20"
       },
@@ -488,7 +488,7 @@ export const ar: Dictionary = {
         title: "الشركاء",
         subtitle: "الشراكات الاستراتيجية",
         desc: "بناء شراكات استراتيجية وتوقيع مذكرات تفاهم بين قطاعات الرعاية السريرية، الأكاديمية والصحية.",
-        href: "/value",
+        href: "/",
         bgColor: "bg-[#182338]",
         stripeColor: "bg-cyan-400/20"
       },
@@ -497,7 +497,7 @@ export const ar: Dictionary = {
         title: "الزوار",
         subtitle: "بطاقات الحضور",
         desc: "حضور المؤتمرات العلمية والورش التفاعلية، والاطلاع على أحدث مستجدات الابتكار والتوظيف الطبي.",
-        href: "/value",
+        href: "/",
         bgColor: "bg-[#00292f]",
         stripeColor: "bg-teal-300/20"
       }

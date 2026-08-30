@@ -1,16 +1,12 @@
 import type { Metadata } from "next";
-import { Plus_Jakarta_Sans, Tajawal } from "next/font/google";
+import { Plus_Jakarta_Sans, Tajawal, Geist } from "next/font/google";
 import { LanguageProvider } from "./context/LanguageContext";
 import "./globals.css";
 import Navbar from "./components/Navbar";
 import ContactFooter from "./components/ContactFooter";
+import { cn } from "@/lib/utils";
 
-const plusJakartaSans = Plus_Jakarta_Sans({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-  variable: "--font-sans",
-  display: "swap",
-});
+const geist = Geist({subsets:['latin'],variable:'--font-sans'});
 
 const tajawal = Tajawal({
   subsets: ["arabic"],
@@ -39,7 +35,7 @@ export default function RootLayout({
     <html
       lang="ar"
       dir="rtl"
-      className={`${plusJakartaSans.variable} ${tajawal.variable}`}
+      className={cn(tajawal.variable, "font-sans", geist.variable)}
     >
       <body className="antialiased" suppressHydrationWarning>
         <LanguageProvider>

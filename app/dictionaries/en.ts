@@ -22,11 +22,11 @@ export const en = {
     registerVisitor: "Register as Visitor",
     participateSponsor: "Participate as Sponsor",
     stats: [
-      { label: "Visitors", value: "20,000+" },
-      { label: "Exhibition Space", value: "18,000 sqm" },
-      { label: "Exhibitors", value: "150+" },
-      { label: "Speakers", value: "50+" },
-    ],
+      { label: "Visitors", value: "20000", suffix: "+" },
+      { label: "Exhibition Space", value: "18000", suffix: "sqm" },
+      { label: "Exhibitors", value: "150", suffix: "+" },
+      { label: "Speakers", value: "50", suffix: "+" },
+    ]
   },
   partners: {
     title: "Strategic Partners & Participating Entities",
