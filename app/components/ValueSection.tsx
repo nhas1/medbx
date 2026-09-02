@@ -174,12 +174,81 @@ export default function ValueSection() {
       </section>
 
       {/* ═══════════════════════════════════════════════════════
-          SECTION 2 — VALUE FOR COMPANIES
+          SECTION 2 — VALUE FOR EXHIBITORS
+       ═══════════════════════════════════════════════════════ */}
+      <section
+        id="value-exhibitors"
+        className="relative py-12 md:py-16 bg-[var(--color-surface)] border-t border-[var(--color-outline-variant)]/20 overflow-hidden"
+        aria-label={t.value.exhibitorsTitle}
+      >
+        <div className="max-w-[1400px] mx-auto px-6 md:px-12 relative z-10">
+          <m.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-60px" }}
+            variants={fadeUp}
+            className="mb-10 md:mb-12 max-w-4xl"
+          >
+            <h2 className="text-3xl md:text-5xl font-bold text-[var(--color-primary)] tracking-tight leading-[1.15] mb-5">
+              {t.value.exhibitorsTitle}
+            </h2>
+
+            <p className="text-[var(--color-on-surface-variant)] text-base md:text-lg leading-relaxed">
+              {t.value.exhibitorsDesc}
+            </p>
+          </m.div>
+
+          <div className="space-y-12">
+            {t.value.exhibitorPillars.map((pillar, pillarIdx) => (
+              <m.div
+                key={`ep-${pillarIdx}`}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, margin: "-40px" }}
+                variants={fadeUp}
+                className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 md:p-8 border border-[var(--color-outline-variant)]/20 shadow-sm"
+              >
+                <h3 className="text-xl md:text-2xl font-bold text-[var(--color-primary)] mb-6 pb-4 border-b border-[var(--color-outline-variant)]/20 flex items-center gap-3">
+                  <span className="w-3 h-3 rounded-full bg-[var(--color-secondary)] inline-block" />
+                  {pillar.title}
+                </h3>
+
+                <m.div
+                  variants={staggerContainer}
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true, margin: "-20px" }}
+                  className={`grid grid-cols-1 sm:grid-cols-2 ${pillar.benefits.length === 3 ? "lg:grid-cols-3" : "lg:grid-cols-2"
+                    } gap-x-8 gap-y-8`}
+                >
+                  {pillar.benefits.map((benefit, idx) => (
+                    <m.div
+                      key={`epb-${pillarIdx}-${idx}`}
+                      variants={cardPop}
+                      className="flex flex-col border-t-2 border-[var(--color-secondary)] pt-5 group"
+                    >
+                      <h4 className="font-bold text-xl md:text-2xl text-[var(--color-primary)] mb-3 tracking-tight leading-snug group-hover:text-[var(--color-secondary)] transition-colors duration-200">
+                        {benefit.title}
+                      </h4>
+                      <p className="text-[var(--color-on-surface-variant)] text-sm md:text-base leading-relaxed">
+                        {benefit.desc}
+                      </p>
+                    </m.div>
+                  ))}
+                </m.div>
+              </m.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ═══════════════════════════════════════════════════════
+          SECTION 3 — VALUE FOR COMPANIES
           Light surface + minimalist top-bordered grid (inspired by reference layout)
        ═══════════════════════════════════════════════════════ */}
       <section
         id="value-companies"
-        className="relative py-10 md:py-15 bg-[var(--color-surface)] border-t border-[var(--color-outline-variant)]/20 overflow-hidden"
+        className="relative py-10 md:py-15 bg-white border-t border-[var(--color-outline-variant)]/20 overflow-hidden"
         aria-label={t.value.companiesTitle}
       >
         <div className="max-w-[1400px] mx-auto px-6 md:px-12 relative z-10">

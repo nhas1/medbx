@@ -85,7 +85,7 @@ export default function HeroSection() {
                   {t.hero.registerVisitor}
                 </m.button>
 
-                <Link href="/sponsors">
+                <Link href="/">
                   <m.button
                     id="hero-sponsor"
                     whileHover={{

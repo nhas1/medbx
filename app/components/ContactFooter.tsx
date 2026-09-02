@@ -4,9 +4,9 @@ import { useLanguage } from "../context/LanguageContext";
 import { usePathname, useRouter } from "next/navigation";
 import {
   FaInstagram,
-  FaLinkedinIn,
-  FaYoutube,
-  FaFacebookF,
+  FaSnapchat,
+  FaTiktok,
+  FaWhatsapp,
   FaXTwitter,
 } from "react-icons/fa6";
 import { LuPhone, LuMail, LuMapPin, LuArrowUpRight } from "react-icons/lu";
@@ -55,8 +55,6 @@ export default function ContactFooter() {
     { label: t.nav.sectors, href: "#sectors" },
     { label: t.nav.value, href: "/value" },
     { label: t.nav.news, href: "/news" },
-    { label: t.nav.schedule, href: "#schedule" },
-    { label: t.nav.sponsors, href: "/sponsors" },
     { label: t.contactFooter.faqLink, href: "#faq" },
   ];
 
@@ -81,7 +79,7 @@ export default function ContactFooter() {
 
           {/* Navigation Links Column */}
           <div className="md:col-span-3 flex flex-col gap-3">
-            <p className="text-xs font-mono uppercase tracking-[0.2em] text-gray-400 font-semibold mb-1">
+            <p className="text-xs uppercase tracking-[0.2em] text-gray-400 font-semibold mb-1">
               {locale === "ar" ? "استكشف" : "Discover"}
             </p>
             <div className="flex flex-col gap-2">
@@ -101,7 +99,7 @@ export default function ContactFooter() {
 
           {/* Contact Details & Legals Column */}
           <div className="md:col-span-3 flex flex-col gap-3">
-            <p className="text-xs font-mono uppercase tracking-[0.2em] text-gray-400 font-semibold mb-1">
+            <p className="text-xs uppercase tracking-[0.2em] text-gray-400 font-semibold mb-1">
               {locale === "ar" ? "التواصل" : "Contact"}
             </p>
 
@@ -127,28 +125,28 @@ export default function ContactFooter() {
             </div>
 
             <div className="flex gap-4 mt-3 pt-3 border-t border-white/10 text-xs text-gray-400">
-              <a href="#" className="hover:text-white transition-colors">
+              <span className="hover:text-white transition-colors">
                 {t.contactFooter.privacyPolicy}
-              </a>
+              </span>
               <span>•</span>
-              <a href="#" className="hover:text-white transition-colors">
+              <span className="hover:text-white transition-colors">
                 {t.contactFooter.termsOfService}
-              </a>
+              </span>
             </div>
           </div>
 
           {/* Social Media Column */}
           <div className="sm:col-span-2 md:col-span-2 flex flex-col gap-4">
-            <p className="text-xs font-mono uppercase tracking-[0.2em] text-gray-400 font-semibold">
+            <p className="text-xs uppercase tracking-[0.2em] text-gray-400 font-semibold">
               {t.contactFooter.followUsTitle}
             </p>
             <div className="flex flex-wrap gap-2.5">
               {[
-                { label: "Instagram", Icon: FaInstagram, href: "#" },
-                { label: "LinkedIn", Icon: FaLinkedinIn, href: "#" },
-                { label: "YouTube", Icon: FaYoutube, href: "#" },
-                { label: "Facebook", Icon: FaFacebookF, href: "#" },
-                { label: "X", Icon: FaXTwitter, href: "#" },
+                { label: "Instagram", Icon: FaInstagram, href: "https://www.instagram.com/medbx_?igsi=NXA3cmJtYXEycjBw" },
+                { label: "Snapchat", Icon: FaSnapchat, href: "https://www.snapchat.com/@medbx1?sender_web_id=cfbd91a1-db63-429b-99d4-80b0b8ee06b7&device_type=desktop&is_copy_url=true" },
+                { label: "Tiktok", Icon: FaTiktok, href: "https://www.tiktok.com/@medbx_?_r=1&_t=zs-99ak86wadsu" },
+                { label: "Whatsapp", Icon: FaWhatsapp, href: "https://api.whatsapp.com/send/?phone=966506848991&text&type=phone_number&app_absent=0" },
+                { label: "X", Icon: FaXTwitter, href: "https://x.com/Medbx_" },
               ].map(({ label, Icon, href }) => (
                 <a
                   key={label}

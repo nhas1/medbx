@@ -2,10 +2,10 @@ export const en = {
   nav: {
     logoAlt: "MedBX Logo",
     sectors: "Sectors",
-    value: "Services",
+    value: "Attendees",
+    whyAttend: "Why Attend?",
+    sponsorshipPlans: "Sponsorship Plans",
     news: "News & Announcements",
-    schedule: "Schedule",
-    sponsors: "Sponsors",
     contact: "Contact",
     langToggle: "العربية",
     register: "Register",
@@ -22,9 +22,9 @@ export const en = {
     registerVisitor: "Register as Visitor",
     participateSponsor: "Participate as Sponsor",
     stats: [
-      { label: "Visitors", value: "20000", suffix: "+" },
-      { label: "Exhibition Space", value: "18000", suffix: "sqm" },
-      { label: "Exhibitors", value: "150", suffix: "+" },
+      { label: "Visitors", value: "80000", suffix: "+" },
+      { label: "Exhibition Space", value: "170000", suffix: "sqm" },
+      { label: "Exhibitors", value: "600", suffix: "+" },
       { label: "Speakers", value: "50", suffix: "+" },
     ]
   },
@@ -302,6 +302,7 @@ export const en = {
     poweredBy: "Powered by Clinical Innovation Design System",
   },
   value: {
+    headerTitle: "Shaping the Future of Healthcare",
     visitorsEyebrow: "For Visitors",
     visitorsTitle: "What MedBX Offers You",
     visitorsDesc:
@@ -327,6 +328,42 @@ export const en = {
       {
         title: "Impactful Network",
         desc: "Building strategic connections with key decision-makers and healthcare professionals.",
+      },
+    ],
+    exhibitorsEyebrow: "For Exhibitors",
+    exhibitorsTitle: "Added Value for Exhibitors",
+    exhibitorsDesc:
+      "Based on approved MedBX documentation, your participation as an exhibitor in this national event is centered around two core pillars:",
+    exhibitorPillars: [
+      {
+        title: "Product & Services Exhibition ",
+        benefits: [
+          {
+            title: "Access to Specialized Audience",
+            desc: "The forum grants you an exceptional opportunity to showcase your medical and technical services and products directly to an elite and specialized healthcare audience.",
+          },
+          {
+            title: "Building Brand Awareness",
+            desc: "This presence contributes to enhancing awareness of your brand and corporate identity, cementing your market position.",
+          },
+          {
+            title: "Increased Collaboration Opportunities",
+            desc: "The exhibition opens broad horizons for deal-making and increases opportunities for commercial and strategic partnerships.",
+          },
+        ],
+      },
+      {
+        title: " Talent Sourcing & Acquisition",
+        benefits: [
+          {
+            title: "Attracting Medical Elites",
+            desc: "The forum enables you to recruit distinguished medical and professional talent, satisfying your organization's needs for qualified national workforce.",
+          },
+          {
+            title: "Developing Service Quality",
+            desc: "Direct communication with professionals helps build a strong network that actively contributes to enhancing healthcare quality in your facilities and fostering innovation culture.",
+          },
+        ],
       },
     ],
     companiesEyebrow: "For Companies",
@@ -466,7 +503,7 @@ export const en = {
         title: "Exhibitors",
         subtitle: "Exhibition Spaces",
         desc: "Book exhibition booths to showcase biomedical devices and healthcare technologies to 20,000+ professionals.",
-        href: "/sponsors",
+        href: "/",
         bgColor: "bg-[#0c2a27]",
         stripeColor: "bg-emerald-400/20"
       },
@@ -484,7 +521,7 @@ export const en = {
         title: "Partners",
         subtitle: "Strategic Alliances",
         desc: "Build strategic partnerships and sign MOUs between clinical, research, and institutional leaders.",
-        href: "/value",
+        href: "/",
         bgColor: "bg-[#182338]",
         stripeColor: "bg-cyan-400/20"
       },
@@ -493,7 +530,7 @@ export const en = {
         title: "Visitors",
         subtitle: "Forum Access Pass",
         desc: "Attend expert panels, interactive workshops, and explore medical employment & health tech innovations.",
-        href: "/value",
+        href: "/",
         bgColor: "bg-[#00292f]",
         stripeColor: "bg-teal-300/20"
       }
