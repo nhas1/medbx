@@ -45,7 +45,7 @@ export default function Navbar() {
       href: "/value",
       hasDropdown: true,
       dropdownItems: [
-        { label: t.nav.whyAttend, href: "/" },
+        { label: t.nav.whyAttend, href: "/value" },
         { label: t.nav.sponsorshipPlans, href: "/sponsors" },
       ],
     },

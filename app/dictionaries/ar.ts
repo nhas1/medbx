@@ -507,7 +507,7 @@ export const ar: Dictionary = {
         title: "العارضين",
         subtitle: "مساحات المعرض",
         desc: "حجز المساحات والبوثات في المعرض لعرض التقنيات والأجهزة الطبية المتطورة ومقابلة أكثر من 20,000 متخصص.",
-        href: "/",
+        href: "/value",
         bgColor: "bg-[#0c2a27]",
         stripeColor: "bg-emerald-400/20"
       },
@@ -525,7 +525,7 @@ export const ar: Dictionary = {
         title: "الشركاء",
         subtitle: "الشراكات الاستراتيجية",
         desc: "بناء شراكات استراتيجية وتوقيع مذكرات تفاهم بين قطاعات الرعاية السريرية، الأكاديمية والصحية.",
-        href: "/",
+        href: "/value",
         bgColor: "bg-[#182338]",
         stripeColor: "bg-cyan-400/20"
       },
@@ -534,7 +534,7 @@ export const ar: Dictionary = {
         title: "الزوار",
         subtitle: "بطاقات الحضور",
         desc: "حضور المؤتمرات العلمية والورش التفاعلية، والاطلاع على أحدث مستجدات الابتكار والتوظيف الطبي.",
-        href: "/",
+        href: "/value",
         bgColor: "bg-[#00292f]",
         stripeColor: "bg-teal-300/20"
       }

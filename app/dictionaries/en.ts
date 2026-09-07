@@ -503,7 +503,7 @@ export const en = {
         title: "Exhibitors",
         subtitle: "Exhibition Spaces",
         desc: "Book exhibition booths to showcase biomedical devices and healthcare technologies to 20,000+ professionals.",
-        href: "/",
+        href: "/value",
         bgColor: "bg-[#0c2a27]",
         stripeColor: "bg-emerald-400/20"
       },
@@ -521,7 +521,7 @@ export const en = {
         title: "Partners",
         subtitle: "Strategic Alliances",
         desc: "Build strategic partnerships and sign MOUs between clinical, research, and institutional leaders.",
-        href: "/",
+        href: "/value",
         bgColor: "bg-[#182338]",
         stripeColor: "bg-cyan-400/20"
       },
@@ -530,7 +530,7 @@ export const en = {
         title: "Visitors",
         subtitle: "Forum Access Pass",
         desc: "Attend expert panels, interactive workshops, and explore medical employment & health tech innovations.",
-        href: "/",
+        href: "/value",
         bgColor: "bg-[#00292f]",
         stripeColor: "bg-teal-300/20"
       }
