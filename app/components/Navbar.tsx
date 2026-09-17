@@ -49,7 +49,7 @@ export default function Navbar() {
         { label: t.nav.sponsorshipPlans, href: "/sponsors" },
       ],
     },
-    { label: t.nav.news, href: "#news" },
+    { label: t.nav.news, href: "/news" },
     { label: t.nav.contact, href: "#contact" },
   ];
 
