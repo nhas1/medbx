@@ -32,7 +32,7 @@ export default function PageHeader({
             sizes="100vw"
             quality={85}
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-[var(--color-primary)]/80 via-[var(--color-primary)]/60 to-[var(--color-primary)]/90" />
+          <div className="absolute inset-0 bg-linear-to-b from-primary/80 via-primary/60 to-primary/90" />
         </div>
 
         {/* Centered Content Container — Exactly 50vw width on desktop */}

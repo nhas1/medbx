@@ -40,17 +40,17 @@ export default function ValuePage() {
     <LazyMotion features={domAnimation} strict>
       <PageHeader
         title={t.value.headerTitle}
-        subtitle={t.value.visitorsDesc}
+        // subtitle={t.value.visitorsDesc}
         imageSrc="/bg.webp"
       />
 
       {/* SECTION 1 — VALUE FOR VISITORS */}
       <section
         id="value-visitors"
-        className="relative py-10 md:py-15 bg-white border-t border-[var(--color-outline-variant)]/20 overflow-hidden"
+        className="relative py-10 md:py-15 bg-white border-t border-outline-variant/20 overflow-hidden"
         aria-label={t.value.visitorsTitle}
       >
-        <div className="max-w-[1400px] mx-auto px-6 md:px-12 relative z-10">
+        <div className="max-w-350 mx-auto px-6 md:px-12 relative z-10">
           <m.div
             initial="hidden"
             whileInView="visible"
@@ -58,11 +58,11 @@ export default function ValuePage() {
             variants={fadeUp}
             className="mb-10 md:mb-10 max-w-3xl"
           >
-            <h2 className="text-3xl md:text-5xl font-bold text-[var(--color-primary)] tracking-tight leading-[1.15] mb-5">
+            <h2 className="text-3xl md:text-5xl font-bold text-(--color-primary) tracking-tight leading-[1.15] mb-5">
               {t.value.visitorsTitle}
             </h2>
 
-            <p className="text-[var(--color-on-surface-variant)] text-base md:text-lg leading-relaxed">
+            <p className="text-(--color-on-surface-variant) text-base md:text-lg leading-relaxed">
               {t.value.visitorsDesc}
             </p>
           </m.div>
@@ -72,18 +72,18 @@ export default function ValuePage() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-40px" }}
-            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-12"
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-12"
           >
             {t.value.visitorBenefits.map((benefit, idx) => (
               <m.div
                 key={`vb-${idx}`}
                 variants={cardPop}
-                className="flex flex-col border-t-2 border-[var(--color-secondary)] pt-5 group"
+                className="flex flex-col border-t-2 border-(--color-secondary) pt-5 group"
               >
-                <h3 className="font-bold text-xl md:text-2xl text-[var(--color-primary)] mb-3 tracking-tight leading-snug group-hover:text-[var(--color-secondary)] transition-colors duration-200">
+                <h3 className="font-bold text-xl md:text-2xl text-(--color-primary) mb-3 tracking-tight leading-snug group-hover:text-(--color-secondary) transition-colors duration-200">
                   {benefit.title}
                 </h3>
-                <p className="text-[var(--color-on-surface-variant)] text-sm md:text-base leading-relaxed">
+                <p className="text-(--color-on-surface-variant) text-sm md:text-base leading-relaxed">
                   {benefit.desc}
                 </p>
               </m.div>
@@ -95,10 +95,10 @@ export default function ValuePage() {
       {/* SECTION 2 — VALUE FOR EXHIBITORS */}
       <section
         id="value-exhibitors"
-        className="relative py-12 md:py-16 bg-[var(--color-surface)] border-t border-[var(--color-outline-variant)]/20 overflow-hidden"
+        className="relative py-12 md:py-16 bg-(--color-surface) border-t border-outline-variant/20 overflow-hidden"
         aria-label={t.value.exhibitorsTitle}
       >
-        <div className="max-w-[1400px] mx-auto px-6 md:px-12 relative z-10">
+        <div className="max-w-350 mx-auto px-6 md:px-12 relative z-10">
           <m.div
             initial="hidden"
             whileInView="visible"
@@ -106,11 +106,11 @@ export default function ValuePage() {
             variants={fadeUp}
             className="mb-10 md:mb-12 max-w-4xl"
           >
-            <h2 className="text-3xl md:text-5xl font-bold text-[var(--color-primary)] tracking-tight leading-[1.15] mb-5">
+            <h2 className="text-3xl md:text-5xl font-bold text-(--color-primary) tracking-tight leading-[1.15] mb-5">
               {t.value.exhibitorsTitle}
             </h2>
 
-            <p className="text-[var(--color-on-surface-variant)] text-base md:text-lg leading-relaxed">
+            <p className="text-(--color-on-surface-variant) text-base md:text-lg leading-relaxed">
               {t.value.exhibitorsDesc}
             </p>
           </m.div>
@@ -123,9 +123,9 @@ export default function ValuePage() {
                 whileInView="visible"
                 viewport={{ once: true, margin: "-40px" }}
                 variants={fadeUp}
-                className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 md:p-8 border border-[var(--color-outline-variant)]/20 shadow-sm"
+                className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 md:p-8 border border-outline-variant/20 shadow-sm"
               >
-                <h3 className="text-xl md:text-2xl font-bold text-[var(--color-primary)] mb-6 pb-4 border-b border-[var(--color-outline-variant)]/20 flex items-center gap-3">
+                <h3 className="text-xl md:text-2xl font-bold text-(--color-primary) mb-6 pb-4 border-b border-outline-variant/20 flex items-center gap-3">
                   {pillar.title}
                 </h3>
 
@@ -134,19 +134,22 @@ export default function ValuePage() {
                   initial="hidden"
                   whileInView="visible"
                   viewport={{ once: true, margin: "-20px" }}
-                  className={`grid grid-cols-1 sm:grid-cols-2 ${pillar.benefits.length === 3 ? "lg:grid-cols-3" : "lg:grid-cols-2"
-                    } gap-x-8 gap-y-8`}
+                  className={`grid grid-cols-1 sm:grid-cols-2 ${
+                    pillar.benefits.length === 3
+                      ? "lg:grid-cols-3"
+                      : "lg:grid-cols-2"
+                  } gap-x-8 gap-y-8`}
                 >
                   {pillar.benefits.map((benefit, idx) => (
                     <m.div
                       key={`epb-${pillarIdx}-${idx}`}
                       variants={cardPop}
-                      className="flex flex-col border-t-2 border-[var(--color-secondary)] pt-5 group"
+                      className="flex flex-col border-t-2 border-(--color-secondary) pt-5 group"
                     >
-                      <h4 className="font-bold text-xl md:text-2xl text-[var(--color-primary)] mb-3 tracking-tight leading-snug group-hover:text-[var(--color-secondary)] transition-colors duration-200">
+                      <h4 className="font-bold text-xl md:text-2xl text-(--color-primary) mb-3 tracking-tight leading-snug group-hover:text-(--color-secondary) transition-colors duration-200">
                         {benefit.title}
                       </h4>
-                      <p className="text-[var(--color-on-surface-variant)] text-sm md:text-base leading-relaxed">
+                      <p className="text-(--color-on-surface-variant) text-sm md:text-base leading-relaxed">
                         {benefit.desc}
                       </p>
                     </m.div>
@@ -161,10 +164,10 @@ export default function ValuePage() {
       {/* SECTION 3 — VALUE FOR COMPANIES */}
       <section
         id="value-companies"
-        className="relative py-10 md:py-15 bg-white border-t border-[var(--color-outline-variant)]/20 overflow-hidden"
+        className="relative py-10 md:py-15 bg-white border-t border-outline-variant/20 overflow-hidden"
         aria-label={t.value.companiesTitle}
       >
-        <div className="max-w-[1400px] mx-auto px-6 md:px-12 relative z-10">
+        <div className="max-w-350 mx-auto px-6 md:px-12 relative z-10">
           <m.div
             initial="hidden"
             whileInView="visible"
@@ -172,11 +175,11 @@ export default function ValuePage() {
             variants={fadeUp}
             className="mb-10 md:mb-10 max-w-3xl"
           >
-            <h2 className="text-3xl md:text-5xl font-bold text-[var(--color-primary)] tracking-tight leading-[1.15] mb-5">
+            <h2 className="text-3xl md:text-5xl font-bold text-(--color-primary) tracking-tight leading-[1.15] mb-5">
               {t.value.companiesTitle}
             </h2>
 
-            <p className="text-[var(--color-on-surface-variant)] text-base md:text-lg leading-relaxed">
+            <p className="text-(--color-on-surface-variant) text-base md:text-lg leading-relaxed">
               {t.value.companiesDesc}
             </p>
           </m.div>
@@ -186,18 +189,18 @@ export default function ValuePage() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-40px" }}
-            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-12"
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-12"
           >
             {t.value.companyBenefits.map((benefit, idx) => (
               <m.div
                 key={`cb-${idx}`}
                 variants={cardPop}
-                className="flex flex-col border-t-2 border-[var(--color-primary)] pt-5 group"
+                className="flex flex-col border-t-2 border-(--color-primary) pt-5 group"
               >
-                <h3 className="font-bold text-xl md:text-2xl text-[var(--color-primary)] mb-3 tracking-tight leading-snug group-hover:text-[var(--color-secondary)] transition-colors duration-200">
+                <h3 className="font-bold text-xl md:text-2xl text-(--color-primary) mb-3 tracking-tight leading-snug group-hover:text-(--color-secondary) transition-colors duration-200">
                   {benefit.title}
                 </h3>
-                <p className="text-[var(--color-on-surface-variant)] text-sm md:text-base leading-relaxed">
+                <p className="text-(--color-on-surface-variant) text-sm md:text-base leading-relaxed">
                   {benefit.desc}
                 </p>
               </m.div>
@@ -210,10 +213,12 @@ export default function ValuePage() {
       <section
         id="value-services"
         className="relative py-20 md:py-24 overflow-hidden"
-        style={{ background: "linear-gradient(360deg, #001026 50%, #00292f 100%)" }}
+        style={{
+          background: "linear-gradient(360deg, #001026 50%, #00292f 100%)",
+        }}
         aria-label={t.value.servicesTitle}
       >
-        <div className="max-w-[1400px] mx-auto px-6 md:px-12 relative z-10">
+        <div className="max-w-350 mx-auto px-6 md:px-12 relative z-10">
           <m.div
             initial="hidden"
             whileInView="visible"
@@ -242,7 +247,7 @@ export default function ValuePage() {
                   scale: 1.015,
                 }}
                 transition={{ duration: 0.3, ease: customEase }}
-                className="relative rounded-2xl min-h-[280px] sm:min-h-[320px] p-6 flex flex-col justify-between cursor-default group overflow-hidden"
+                className="relative rounded-2xl min-h-40 sm:min-h-50 p-6 flex flex-col justify-between cursor-default group overflow-hidden"
                 style={{
                   background:
                     "linear-gradient(180deg, rgba(255,255,255,0.06) 0%, rgba(255,255,255,0.02) 100%)",
@@ -262,7 +267,7 @@ export default function ValuePage() {
                   {service.title}
                 </h3>
 
-                <p className="relative z-10 text-white/50 text-sm leading-relaxed group-hover:text-white/70 transition-colors duration-300">
+                <p className="relative z-10 text-white/80 text-sm leading-relaxed group-hover:text-white/70 transition-colors duration-300">
                   {service.desc}
                 </p>
               </m.div>

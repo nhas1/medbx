@@ -69,7 +69,7 @@ export default function AboutSection() {
         className="py-16 md:py-24 bg-[#e8e8e8] text-[#191c1d]"
         aria-label="About MedBX"
       >
-        <div className="max-w-[1400px] mx-auto px-6 md:px-12">
+        <div className="max-w-350 mx-auto px-6 md:px-12">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-stretch">
             {/* Left Column: Big Headline & Tags */}
             <m.div
@@ -98,7 +98,7 @@ export default function AboutSection() {
                     key={`tag-${idx}`}
                     custom={idx}
                     variants={tagVariants}
-                    className="bg-white/90 border border-gray-200/80 text-gray-800 text-xs font-semibold px-3.5 py-1.5 rounded-md shadow-xs"
+                    className="bg-white/90 border border-gray-200/80 text-gray-800 text-md font-semibold px-3.5 py-1.5 rounded-md shadow-xs"
                   >
                     {tag}
                   </m.span>
@@ -159,7 +159,7 @@ export default function AboutSection() {
         </div>
 
         {/* Why MedBX pillars */}
-        <div id="why-medbx" className="max-w-[1400px] mx-auto px-6 md:px-12">
+        <div id="why-medbx" className="max-w-350 mx-auto px-6 md:px-12">
           <m.div
             initial="hidden"
             whileInView="visible"
@@ -167,10 +167,10 @@ export default function AboutSection() {
             variants={fadeInVariants}
             className="text-center mb-12 mt-24"
           >
-            <h2 className="text-[clamp(2rem,4vw,3rem)] font-bold text-[var(--color-primary)] mb-4 tracking-tight">
+            <h2 className="text-[clamp(2rem,4vw,3rem)] font-bold text-(--color-primary) mb-4 tracking-tight">
               {t.about.whyTitle}
             </h2>
-            <p className="text-[var(--color-on-surface-variant)] text-lg max-w-2xl mx-auto">
+            <p className="text-(--color-on-surface-variant) text-lg max-w-2xl mx-auto">
               {t.about.whySubtitle}
             </p>
           </m.div>
@@ -193,18 +193,18 @@ export default function AboutSection() {
                     boxShadow: "0px 8px 30px rgba(11, 37, 69, 0.12)",
                   }}
                   transition={{ duration: 0.25, ease: customEase }}
-                  className="bg-[var(--color-surface-container-lowest)] rounded-2xl p-6 shadow-clinical border border-[var(--color-outline-variant)]/20 flex flex-col items-center text-center group cursor-pointer"
+                  className="bg-(--color-surface-container-lowest) rounded-2xl p-6 shadow-clinical border border-outline-variant/20 flex flex-col items-center text-center group cursor-pointer"
                 >
-                  <div className="w-16 h-16 bg-[var(--color-primary)]/5 rounded-full flex items-center justify-center mb-4 group-hover:bg-[var(--color-secondary)]/10 transition-colors duration-200">
+                  <div className="w-16 h-16 bg-primary/5 rounded-full flex items-center justify-center mb-4 roup-hover:bg-secondary/10 transition-colors duration-200">
                     <Icon
                       size={28}
-                      className="text-[var(--color-primary)] group-hover:text-[var(--color-secondary)] transition-colors duration-200"
+                      className="text-(--color-primary) group-hover:text-(--color-secondary) transition-colors duration-200"
                     />
                   </div>
-                  <h3 className="font-semibold text-[var(--color-primary)] mb-2">
+                  <h3 className="font-semibold text-(--color-primary) mb-2">
                     {p.title}
                   </h3>
-                  <p className="text-[var(--color-on-surface-variant)] text-sm leading-relaxed">
+                  <p className="text-(--color-on-surface-variant) text-sm leading-relaxed">
                     {p.desc}
                   </p>
                 </m.div>

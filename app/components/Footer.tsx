@@ -11,14 +11,14 @@ import {
 } from "react-icons/fa6";
 import { LuPhone, LuMail, LuMapPin, LuArrowUpRight } from "react-icons/lu";
 
-export default function ContactFooter() {
+export default function Footer() {
   const { t, locale } = useLanguage();
   const pathname = usePathname();
   const router = useRouter();
 
   const handleSmoothScroll = (
     e: React.MouseEvent<HTMLAnchorElement>,
-    href: string
+    href: string,
   ) => {
     e.preventDefault();
     if (href === "/sponsors" || href === "/news" || href === "/value") {
@@ -55,17 +55,17 @@ export default function ContactFooter() {
     { label: t.nav.sectors, href: "#sectors" },
     { label: t.nav.value, href: "/value" },
     { label: t.nav.news, href: "/news" },
-    { label: t.contactFooter.faqLink, href: "#faq" },
+    { label: t.Footer.faqLink, href: "#faq" },
   ];
 
   return (
     <footer
       id="contact"
-      className="sticky bottom-0 z-0 bg-[#001026] text-white w-full overflow-hidden pt-16 pb-8 min-h-[220px] flex flex-col justify-between"
+      className="sticky bottom-0 z-0 bg-[#001026] text-white w-full overflow-hidden pt-16 pb-8 min-h-55 flex flex-col justify-between"
       aria-label="Contact and Footer"
     >
       {/* Top Main Footer Section */}
-      <div className="max-w-[1340px] mx-auto px-6 sm:px-8 md:px-12 w-full">
+      <div className="max-w-335 mx-auto px-6 sm:px-8 md:px-12 w-full">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-12 gap-10 lg:gap-12 pb-12">
           {/* Brand Column */}
           <div className="sm:col-span-2 md:col-span-4 flex flex-col gap-4">
@@ -73,7 +73,7 @@ export default function ContactFooter() {
               <span>MEDBX</span>
             </div>
             <p className="text-gray-400 text-sm leading-relaxed max-w-sm">
-              {t.contactFooter.brandDesc}
+              {t.Footer.brandDesc}
             </p>
           </div>
 
@@ -105,32 +105,32 @@ export default function ContactFooter() {
 
             <div className="flex flex-col gap-2 text-sm text-gray-300">
               <a
-                href="tel:+966501234567"
+                href="tel:+966506848991"
                 className="hover:text-white transition-colors flex items-center gap-2"
               >
-                <LuPhone className="text-xs text-[var(--color-secondary-fixed)]" />
-                <span>+966 50 123 4567</span>
+                <LuPhone className="text-xs text-(--color-secondary-fixed)" />
+                <span dir="ltr">+966 50 684 8991</span>
               </a>
               <a
                 href="mailto:info@nhas1.com"
                 className="hover:text-white transition-colors flex items-center gap-2"
               >
-                <LuMail className="text-xs text-[var(--color-secondary-fixed)]" />
+                <LuMail className="text-xs text-(--color-secondary-fixed)" />
                 <span>info@nhas1.com</span>
               </a>
               <div className="flex items-center gap-2 text-gray-400 text-xs mt-1">
-                <LuMapPin className="text-xs text-[var(--color-secondary-fixed)]" />
-                <span>{t.contactFooter.locationValue}</span>
+                <LuMapPin className="text-xs text-(--color-secondary-fixed)" />
+                <span>{t.Footer.locationValue}</span>
               </div>
             </div>
 
             <div className="flex gap-4 mt-3 pt-3 border-t border-white/10 text-xs text-gray-400">
               <span className="hover:text-white transition-colors">
-                {t.contactFooter.privacyPolicy}
+                {t.Footer.privacyPolicy}
               </span>
               <span>•</span>
               <span className="hover:text-white transition-colors">
-                {t.contactFooter.termsOfService}
+                {t.Footer.termsOfService}
               </span>
             </div>
           </div>
@@ -138,21 +138,39 @@ export default function ContactFooter() {
           {/* Social Media Column */}
           <div className="sm:col-span-2 md:col-span-2 flex flex-col gap-4">
             <p className="text-xs uppercase tracking-[0.2em] text-gray-400 font-semibold">
-              {t.contactFooter.followUsTitle}
+              {t.Footer.followUsTitle}
             </p>
             <div className="flex flex-wrap gap-2.5">
               {[
-                { label: "Instagram", Icon: FaInstagram, href: "https://www.instagram.com/medbx_?igsi=NXA3cmJtYXEycjBw" },
-                { label: "Snapchat", Icon: FaSnapchat, href: "https://www.snapchat.com/@medbx1?sender_web_id=cfbd91a1-db63-429b-99d4-80b0b8ee06b7&device_type=desktop&is_copy_url=true" },
-                { label: "Tiktok", Icon: FaTiktok, href: "https://www.tiktok.com/@medbx_?_r=1&_t=zs-99ak86wadsu" },
-                { label: "Whatsapp", Icon: FaWhatsapp, href: "https://api.whatsapp.com/send/?phone=966506848991&text&type=phone_number&app_absent=0" },
+                {
+                  label: "Instagram",
+                  Icon: FaInstagram,
+                  href: "https://www.instagram.com/medbx_?igsi=NXA3cmJtYXEycjBw",
+                },
+                {
+                  label: "Snapchat",
+                  Icon: FaSnapchat,
+                  href: "https://www.snapchat.com/@medbx1?sender_web_id=cfbd91a1-db63-429b-99d4-80b0b8ee06b7&device_type=desktop&is_copy_url=true",
+                },
+                {
+                  label: "Tiktok",
+                  Icon: FaTiktok,
+                  href: "https://www.tiktok.com/@medbx_?_r=1&_t=zs-99ak86wadsu",
+                },
+                {
+                  label: "Whatsapp",
+                  Icon: FaWhatsapp,
+                  href: "https://api.whatsapp.com/send/?phone=966506848991&text&type=phone_number&app_absent=0",
+                },
                 { label: "X", Icon: FaXTwitter, href: "https://x.com/Medbx_" },
               ].map(({ label, Icon, href }) => (
                 <a
                   key={label}
                   href={href}
                   aria-label={label}
-                  className="w-10 h-10 rounded-full border border-white/20 bg-white/5 flex items-center justify-center text-white/80 hover:text-white hover:bg-[var(--color-secondary)] hover:border-[var(--color-secondary)] transition-all duration-300 cursor-pointer"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-10 h-10 rounded-full border border-white/20 bg-white/5 flex items-center justify-center text-white/80 hover:text-white hover:bg-(--color-secondary) hover:border-(--color-secondary) transition-all duration-300 cursor-pointer"
                 >
                   <Icon className="text-sm" />
                 </a>
@@ -162,9 +180,18 @@ export default function ContactFooter() {
         </div>
       </div>
       {/* Copyright Bottom Bar */}
-      <div className="max-w-[1340px] mx-auto px-6 sm:px-8 md:px-12 w-full flex flex-col sm:flex-row justify-between items-center gap-3 text-xs text-gray-500">
-        <p>© 2027 {locale === "ar" ? "منتدى ميدبكس. جميع الحقوق محفوظة." : "MedBX Forum. All Rights Reserved."}</p>
-        <p>{locale === "ar" ? "المنظمون: نهاس القابضة | RIEP" : "Organizers: Nhas Holding | RIEP"}</p>
+      <div className="max-w-335 mx-auto px-6 sm:px-8 md:px-12 w-full flex flex-col sm:flex-row justify-between items-center gap-3 text-xs text-gray-500">
+        <p>
+          © 2027{" "}
+          {locale === "ar"
+            ? "منتدى ميدبكس. جميع الحقوق محفوظة."
+            : "MedBX Forum. All Rights Reserved."}
+        </p>
+        <p>
+          {locale === "ar"
+            ? "المنظمون: نهاس القابضة | RIEP"
+            : "Organizers: Nhas Holding | RIEP"}
+        </p>
       </div>
     </footer>
   );

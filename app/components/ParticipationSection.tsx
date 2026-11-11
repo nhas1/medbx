@@ -17,7 +17,7 @@ export default function ParticipationSection() {
         className="py-20 md:py-18 bg-white border-t border-gray-100 relative overflow-hidden"
         aria-label={t.participation.title}
       >
-        <div className="max-w-[1380px] mx-auto px-6 sm:px-8 md:px-10">
+        <div className="max-w-345 mx-auto px-6 sm:px-8 md:px-10">
           {/* Section Header */}
           <m.div
             initial={{ opacity: 0, y: 24 }}
@@ -26,10 +26,10 @@ export default function ParticipationSection() {
             transition={{ duration: 0.5, ease: customEase }}
             className="text-center mb-16 md:mb-20"
           >
-            <h2 className="text-[clamp(2rem,4vw,3.25rem)] font-extrabold text-[var(--color-primary)] mb-4 tracking-tight leading-tight">
+            <h2 className="text-[clamp(2rem,4vw,3.25rem)] font-extrabold text-(--color-primary) mb-4 tracking-tight leading-tight">
               {t.participation.title}
             </h2>
-            <p className="text-[var(--color-on-surface-variant)] text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
+            <p className="text-(--color-on-surface-variant) text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
               {t.participation.subtitle}
             </p>
           </m.div>
@@ -48,7 +48,7 @@ export default function ParticipationSection() {
                 <Link href={card.href} className="flex flex-col h-full">
                   {/* Top Graphic Card Box (Solid Color Layout) */}
                   <div
-                    className={`w-full aspect-[4/5] sm:aspect-[3/4] rounded-[1.75rem] ${card.bgColor || "bg-[#092932]"} relative overflow-hidden flex flex-col justify-between p-6 shadow-md group-hover:shadow-2xl transition-all duration-300 group-hover:-translate-y-1.5`}
+                    className={`w-full aspect-4/5 sm:aspect-3/4 rounded-[1.75rem] ${card.bgColor || "bg-[#092932]"} relative overflow-hidden flex flex-col justify-between p-6 shadow-md group-hover:shadow-2xl transition-all duration-300 group-hover:-translate-y-1.5`}
                   >
                     {/* Top vertical stripes / graphic bars matching reference */}
                     <div className="absolute top-0 left-0 right-0 h-40 pointer-events-none flex justify-between px-5 opacity-30">
@@ -68,7 +68,7 @@ export default function ParticipationSection() {
                   {/* Below Graphic Card Info & Details */}
                   <div className="flex-1 flex flex-col justify-between pt-5 px-1">
                     <div>
-                      <h4 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-[var(--color-primary)] transition-colors duration-200">
+                      <h4 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-var(--color-primary) transition-colors duration-200">
                         {card.title}
                       </h4>
                       <p className="text-gray-600 text-sm leading-relaxed mb-4">
@@ -76,7 +76,7 @@ export default function ParticipationSection() {
                       </p>
                     </div>
 
-                    <div className="inline-flex items-center gap-2 text-sm font-bold text-[var(--color-secondary)] group-hover:text-[var(--color-primary)] transition-colors duration-200 mt-auto">
+                    <div className="inline-flex items-center gap-2 text-sm font-bold text-var(--color-secondary) group-hover:text-var(--color-primary) transition-colors duration-200 mt-auto">
                       <span>{t.participation.learnMore}</span>
                       <LuArrowRight className="text-base transition-transform duration-200 group-hover:translate-x-1 rtl:rotate-180 rtl:group-hover:-translate-x-1" />
                     </div>

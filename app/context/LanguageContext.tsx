@@ -1,11 +1,35 @@
 "use client";
 
 import React, { createContext, useContext, useState, useEffect } from "react";
-import { en, Dictionary } from "../dictionaries/en";
-import { ar } from "../dictionaries/ar";
+import { en as homeEn, HomeDictionary } from "../dictionaries/home/en";
+import { ar as homeAr } from "../dictionaries/home/ar";
+import { en as sponsorsEn, SponsorsDictionary } from "../dictionaries/sponsors/en";
+import { ar as sponsorsAr } from "../dictionaries/sponsors/ar";
+import { en as newsEn, NewsDictionary } from "../dictionaries/news/en";
+import { ar as newsAr } from "../dictionaries/news/ar";
+import { en as valueEn, ValueDictionary } from "../dictionaries/value/en";
+import { ar as valueAr } from "../dictionaries/value/ar";
 
 export type Locale = "en" | "ar";
 export type Direction = "ltr" | "rtl";
+export type Dictionary = HomeDictionary &
+  SponsorsDictionary &
+  NewsDictionary &
+  ValueDictionary;
+
+const en: Dictionary = {
+  ...homeEn,
+  ...sponsorsEn,
+  ...newsEn,
+  ...valueEn,
+};
+
+const ar: Dictionary = {
+  ...homeAr,
+  ...sponsorsAr,
+  ...newsAr,
+  ...valueAr,
+};
 
 interface LanguageContextType {
   locale: Locale;

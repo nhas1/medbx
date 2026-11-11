@@ -35,10 +35,10 @@ export default function NewsPage() {
 
       <section
         id="news"
-        className="bg-[var(--color-surface)] py-12 md:py-16 relative overflow-hidden"
+        className="bg-(--color-surface) py-12 md:py-6 relative overflow-hidden"
         aria-label={t.news.title}
       >
-        <div className="max-w-[1400px] mx-auto px-6 md:px-12 relative z-10">
+        <div className="max-w-350 mx-auto px-6 md:px-12 relative z-10">
 
           {/* Filter Pills Header — Light Theme */}
           <m.div
@@ -46,7 +46,7 @@ export default function NewsPage() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.4, ease: customEase }}
-            className="flex flex-wrap items-center gap-2.5 sm:gap-3 mb-12"
+            className="flex flex-wrap items-center gap-2.5 sm:gap-3 mb-6"
           >
             {categories.map((cat) => {
               const isActive = selectedCategory === cat.key;

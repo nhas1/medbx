@@ -3,7 +3,7 @@ import { Plus_Jakarta_Sans, Tajawal, Geist } from "next/font/google";
 import { LanguageProvider } from "./context/LanguageContext";
 import "./globals.css";
 import Navbar from "./components/Navbar";
-import ContactFooter from "./components/ContactFooter";
+import Footer from "./components/Footer";
 import { cn } from "@/lib/utils";
 
 const geist = Geist({subsets:['latin'],variable:'--font-sans'});
@@ -41,7 +41,7 @@ export default function RootLayout({
         <LanguageProvider>
           <Navbar />
           {children}
-          <ContactFooter />
+          <Footer />
         </LanguageProvider>
       </body>
     </html>
