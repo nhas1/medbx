@@ -72,20 +72,22 @@ export default function HeroSection() {
 
               {/* CTAs */}
               <div className="flex flex-wrap gap-4 mt-2">
-                <m.button
-                  id="hero-register-visitor"
-                  whileHover={{
-                    y: -2,
-                    boxShadow: "0px 8px 30px rgba(11, 37, 69, 0.2)",
-                  }}
-                  whileTap={{ scale: 0.98 }}
-                  transition={{ duration: 0.2, ease: customEase }}
-                  className="bg-white text-[var(--color-primary)] px-8 py-3.5 rounded-md font-semibold hover:bg-white/90 cursor-pointer"
-                >
-                  {t.hero.registerVisitor}
-                </m.button>
+                <Link href="/register/visitor">
+                  <m.button
+                    id="hero-register-visitor"
+                    whileHover={{
+                      y: -2,
+                      boxShadow: "0px 8px 30px rgba(11, 37, 69, 0.2)",
+                    }}
+                    whileTap={{ scale: 0.98 }}
+                    transition={{ duration: 0.2, ease: customEase }}
+                    className="bg-white text-[var(--color-primary)] px-8 py-3.5 rounded-md font-semibold hover:bg-white/90 cursor-pointer"
+                  >
+                    {t.hero.registerVisitor}
+                  </m.button>
+                </Link>
 
-                <Link href="/">
+                <Link href="/register/sponsor">
                   <m.button
                     id="hero-sponsor"
                     whileHover={{

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-import NewsPage from "../components/NewsPage";
+import PublishedNews from "./_components/PublishedNews";
+import { getPublishedNews } from "@/actions/news";
 
 export const metadata: Metadata = {
   title: "الأخبار والإعلانات | منتدى ميدبكس - MedBX Forum",
@@ -12,10 +13,7 @@ export const metadata: Metadata = {
   },
 };
 
-export default function News() {
-  return (
-    <main className="min-h-screen pt-20 md:pt-20">
-      <NewsPage />
-    </main>
-  );
+export default async function News() {
+  const items = await getPublishedNews();
+  return <PublishedNews items={items} />;
 }

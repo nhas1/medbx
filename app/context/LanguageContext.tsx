@@ -9,19 +9,23 @@ import { en as newsEn, NewsDictionary } from "../dictionaries/news/en";
 import { ar as newsAr } from "../dictionaries/news/ar";
 import { en as valueEn, ValueDictionary } from "../dictionaries/value/en";
 import { ar as valueAr } from "../dictionaries/value/ar";
+import { en as registerEn, RegisterDictionary } from "../dictionaries/register/en";
+import { ar as registerAr } from "../dictionaries/register/ar";
 
 export type Locale = "en" | "ar";
 export type Direction = "ltr" | "rtl";
 export type Dictionary = HomeDictionary &
   SponsorsDictionary &
   NewsDictionary &
-  ValueDictionary;
+  ValueDictionary &
+  RegisterDictionary;
 
 const en: Dictionary = {
   ...homeEn,
   ...sponsorsEn,
   ...newsEn,
   ...valueEn,
+  ...registerEn,
 };
 
 const ar: Dictionary = {
@@ -29,6 +33,7 @@ const ar: Dictionary = {
   ...sponsorsAr,
   ...newsAr,
   ...valueAr,
+  ...registerAr,
 };
 
 interface LanguageContextType {
