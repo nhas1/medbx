@@ -67,6 +67,7 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
   const setLocale = (newLocale: Locale) => {
     setLocaleState(newLocale);
     sessionStorage.setItem("medbx_locale", newLocale);
+    document.cookie = `medbx_locale=${newLocale}; path=/; max-age=31536000; samesite=lax`;
   };
 
   const toggleLocale = () => {

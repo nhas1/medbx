@@ -1,9 +1,9 @@
 import Link from "next/link";
-import { deleteVisitors } from "@/actions/visitors";
+import { deleteVisitors, getVisitors } from "@/actions/visitors";
+import { SearchForm } from "@/components/admin/SearchForm";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
 import {
   Table,
   TableBody,
@@ -12,7 +12,6 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import { getVisitors } from "@/actions/visitors";
 
 export default async function VisitorsPage({
   searchParams,
@@ -38,14 +37,7 @@ export default async function VisitorsPage({
         </p>
       </CardHeader>
       <CardContent className="p-3 sm:p-4">
-        <form className="mb-4 flex flex-col gap-2 sm:flex-row">
-          <Input
-            name="q"
-            defaultValue={q}
-            placeholder="Search name, email or phone"
-          />
-          <Button className="w-full sm:w-auto">Search</Button>
-        </form>
+        <SearchForm placeholder="Search name, email or phone" />
         <Table className="min-w-190">
           <TableHeader>
             <TableRow>

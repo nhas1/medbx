@@ -20,14 +20,17 @@ export type SponsorQuery = {
 };
 
 export async function getSponsors(query: SponsorQuery) {
+  const q = query.q?.trim();
   const where = {
-    ...(query.q
+    ...(q
       ? {
           OR: [
-            { company: { contains: query.q } },
-            { contactName: { contains: query.q } },
-            { email: { contains: query.q } },
-            { phone: { contains: query.q } },
+            { company: { contains: q } },
+            { industry: { contains: q } },
+            { contactName: { contains: q } },
+            { email: { contains: q } },
+            { phone: { contains: q } },
+            { country: { contains: q } },
           ],
         }
       : {}),
@@ -58,6 +61,10 @@ export async function getSponsors(query: SponsorQuery) {
   };
 }
 
+export async function getSponsorCount() {
+  return prisma.sponsorLead.count();
+}
+
 // ─── Mutations ────────────────────────────────────────────────────────────────
 
 export async function updateSponsorStatus(id: number, status: string) {
@@ -70,6 +77,7 @@ export async function updateSponsorStatus(id: number, status: string) {
     data: { status: parsedStatus.data },
   });
   revalidatePath("/admin/sponsors");
+  revalidatePath("/admin");
   return { ok: true as const };
 }
 
@@ -78,5 +86,6 @@ export async function deleteSponsor(id: number) {
   if (!parsed.success) return { ok: false as const, error: "Invalid sponsor." };
   await prisma.sponsorLead.delete({ where: { id: parsed.data } });
   revalidatePath("/admin/sponsors");
+  revalidatePath("/admin");
   return { ok: true as const };
 }

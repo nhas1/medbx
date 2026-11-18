@@ -11,6 +11,7 @@ function create() {
     password: process.env.DATABASE_PASSWORD,
     database: process.env.DATABASE_NAME,
     connectionLimit: 20,
+    allowPublicKeyRetrieval: process.env.NODE_ENV !== "production",
   });
   return new PrismaClient({ adapter });
 }

@@ -1,8 +1,7 @@
-"use client";
-
-import { useState } from "react";
-import { useLanguage } from "@/app/context/LanguageContext";
-import PageHeader from "@/app/components/PageHeader";
+import Image from "next/image";
+import Link from "next/link";
+import { ar } from "@/app/dictionaries/news/ar";
+import { en } from "@/app/dictionaries/news/en";
 
 type NewsItem = {
   id: number;
@@ -14,9 +13,24 @@ type NewsItem = {
   publishedAt: Date | null;
 };
 
-export default function PublishedNews({ items }: { items: NewsItem[] }) {
-  const { locale, t } = useLanguage();
-  const [selectedType, setSelectedType] = useState("all");
+type Locale = "ar" | "en";
+type NewsType = "all" | "news" | "announcement" | "registration";
+
+export default function PublishedNews({
+  items,
+  locale,
+  selectedType,
+}: {
+  items: NewsItem[];
+  locale: Locale;
+  selectedType: string;
+}) {
+  const t = locale === "ar" ? ar : en;
+  const activeType: NewsType = ["all", "news", "announcement", "registration"].includes(
+    selectedType,
+  )
+    ? (selectedType as NewsType)
+    : "all";
   const typeLabels = {
     all: t.news.categories.all,
     news: locale === "ar" ? "أخبار" : "News",
@@ -24,37 +38,52 @@ export default function PublishedNews({ items }: { items: NewsItem[] }) {
     registration: t.news.categories.registrationUpdates,
   };
   const filteredItems =
-    selectedType === "all"
+    activeType === "all"
       ? items
-      : items.filter((item) => (item.type || "news") === selectedType);
+      : items.filter((item) => (item.type || "news") === activeType);
 
   return (
     <main className="min-h-screen">
-      <PageHeader
-        title={t.news.title}
-        subtitle={t.news.subtitle}
-        imageSrc="/health.jpg"
-      />
+      <section className="relative mb-10 flex h-[50vh] min-h-105 overflow-hidden bg-primary py-20 text-white shadow-clinical md:py-28">
+        <div className="absolute inset-0 opacity-40">
+          <Image
+            src="/health.jpg"
+            alt=""
+            fill
+            priority
+            sizes="100vw"
+            className="h-full w-full object-cover mix-blend-overlay"
+          />
+          <div className="absolute inset-0 bg-linear-to-b from-primary/80 via-primary/60 to-primary/90" />
+        </div>
+        <div className="relative z-10 mx-auto flex w-[92%] flex-col items-center justify-center gap-5 text-center md:w-[50vw]">
+          <h1 className="text-3xl font-extrabold leading-tight tracking-tight sm:text-4xl md:text-5xl lg:text-6xl">
+            {t.news.title}
+          </h1>
+          <p className="max-w-2xl text-base leading-relaxed text-white/80 sm:text-lg md:text-xl">
+            {t.news.subtitle}
+          </p>
+        </div>
+      </section>
       <section className="bg-(--color-surface) px-6 py-8 md:px-12 md:py-12">
         <div className="mx-auto max-w-350">
           <div className="mb-8 flex flex-wrap items-center gap-2.5 sm:gap-3">
             {Object.entries(typeLabels).map(([type, label]) => (
-              <button
+              <Link
                 key={type}
-                type="button"
-                onClick={() => setSelectedType(type)}
+                href={type === "all" ? "/news" : `/news?type=${type}`}
                 className={[
                   "rounded-full px-5 py-2.5 text-xs font-semibold tracking-wide transition-all sm:text-sm",
-                  selectedType === type
+                  activeType === type
                     ? "bg-primary text-primary-foreground shadow-md"
                     : "border border-gray-200 bg-white text-muted-foreground hover:border-primary hover:text-primary",
                 ].join(" ")}
               >
                 {label}
-              </button>
+              </Link>
             ))}
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
             {filteredItems.map((item) => {
               const title = locale === "ar" ? item.titleAr : item.titleEn;
               const summary = locale === "ar" ? item.summaryAr : item.summaryEn;
@@ -85,7 +114,9 @@ export default function PublishedNews({ items }: { items: NewsItem[] }) {
           </div>
           {filteredItems.length === 0 && (
             <p className="mt-10 text-muted-foreground">
-              {locale === "ar" ? "لا توجد أخبار منشورة حالياً." : "No published news yet."}
+              {locale === "ar"
+                ? "لا توجد أخبار منشورة حالياً."
+                : "No published news yet."}
             </p>
           )}
         </div>

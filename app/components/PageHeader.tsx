@@ -20,7 +20,7 @@ export default function PageHeader({
 }: PageHeaderProps) {
   return (
     <LazyMotion features={domAnimation} strict>
-      <section className="relative py-20 md:py-28 overflow-hidden bg-[var(--color-primary)] text-white mb-10 shadow-clinical h-[50vh] flex">
+      <section className="relative py-20 md:py-28 overflow-hidden bg-(--color-primary) text-white mb-10 shadow-clinical h-[50vh] flex">
         {/* Background Image with Dark Mix-Blend Overlay */}
         <div className="absolute inset-0 z-0 opacity-40">
           <Image
@@ -30,7 +30,7 @@ export default function PageHeader({
             fill
             priority
             sizes="100vw"
-            quality={85}
+            quality={80}
           />
           <div className="absolute inset-0 bg-linear-to-b from-primary/80 via-primary/60 to-primary/90" />
         </div>

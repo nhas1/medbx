@@ -1,9 +1,9 @@
 import Link from "next/link";
-import { deleteNews } from "@/actions/news";
+import { deleteNews, getNews } from "@/actions/news";
+import { SearchForm } from "@/components/admin/SearchForm";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
 import {
   Table,
   TableBody,
@@ -12,7 +12,6 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import { prisma } from "@/lib/prisma";
 
 export default async function AdminNewsPage({
   searchParams,
@@ -21,16 +20,7 @@ export default async function AdminNewsPage({
 }) {
   const params = await searchParams;
   const q = typeof params.q === "string" ? params.q : undefined;
-  const posts = await prisma.news.findMany({
-    where: q
-      ? {
-          OR: [
-            { titleEn: { contains: q } },
-            { titleAr: { contains: q } },
-          ],
-        }
-      : undefined,
-  });
+  const posts = await getNews(q);
   return (
     <Card>
       <CardHeader className="flex flex-col gap-3 p-3 sm:flex-row sm:items-center sm:justify-between sm:p-4">
@@ -48,12 +38,7 @@ export default async function AdminNewsPage({
         </Link>
       </CardHeader>
       <CardContent className="p-3 sm:p-4">
-        <form className="mb-4 flex flex-col gap-2 sm:flex-row">
-          <Input name="q" defaultValue={q} placeholder="Search title or summary" />
-          <Button className="w-full sm:w-auto" variant="outline">
-            Search
-          </Button>
-        </form>
+        <SearchForm placeholder="Search title or summary" />
         <Table className="min-w-170">
           <TableHeader>
             <TableRow>

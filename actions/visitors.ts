@@ -19,14 +19,19 @@ export type VisitorQuery = {
 };
 
 export async function getVisitors(query: VisitorQuery) {
+  const q = query.q?.trim();
   const where = {
-    ...(query.q
+    ...(q
       ? {
           OR: [
-            { fullName: { contains: query.q } },
-            { email: { contains: query.q } },
-            { phone: { contains: query.q } },
-            { organization: { contains: query.q } },
+            { fullName: { contains: q } },
+            { email: { contains: q } },
+            { phone: { contains: q } },
+            { country: { contains: q } },
+            { city: { contains: q } },
+            { role: { contains: q } },
+            { specialty: { contains: q } },
+            { jobTitle: { contains: q } },
           ],
         }
       : {}),
@@ -53,6 +58,10 @@ export async function getVisitors(query: VisitorQuery) {
   return { items, total, pages: Math.max(1, Math.ceil(total / query.pageSize)) };
 }
 
+export async function getVisitorCount() {
+  return prisma.visitor.count();
+}
+
 // ─── Mutations ────────────────────────────────────────────────────────────────
 
 export async function deleteVisitors(ids: number[]) {
@@ -60,5 +69,6 @@ export async function deleteVisitors(ids: number[]) {
   if (!parsed.success) return { ok: false as const, error: "Invalid visitor selection." };
   await prisma.visitor.deleteMany({ where: { id: { in: parsed.data } } });
   revalidatePath("/admin/visitors");
+  revalidatePath("/admin");
   return { ok: true as const };
 }

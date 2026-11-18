@@ -1,3 +1,4 @@
+import { revalidatePath } from "next/cache";
 import { visitorSchema } from "@/lib/Validation";
 import { getIp, rateLimit } from "@/lib/rate-limit";
 import { prisma } from "@/lib/prisma";
@@ -71,5 +72,7 @@ export async function POST(request: Request) {
     return Response.json({ error: "internal_server_error" }, { status: 500 });
   }
 
+  revalidatePath("/admin");
+  revalidatePath("/admin/visitors");
   return Response.json({ success: true }, { status: 201 });
 }

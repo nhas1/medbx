@@ -1,3 +1,4 @@
+import { revalidatePath } from "next/cache";
 import { sponsorSchema } from "@/lib/Validation";
 import { getIp, rateLimit } from "@/lib/rate-limit";
 import { prisma } from "@/lib/prisma";
@@ -65,5 +66,7 @@ export async function POST(request: Request) {
     return Response.json({ error: "internal_server_error" }, { status: 500 });
   }
 
+  revalidatePath("/admin");
+  revalidatePath("/admin/sponsors");
   return Response.json({ success: true }, { status: 201 });
 }

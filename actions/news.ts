@@ -18,6 +18,23 @@ export async function getNewsForEdit(id: number) {
   return prisma.news.findUnique({ where: { id } });
 }
 
+export async function getNews(q?: string) {
+  const term = q?.trim();
+  return prisma.news.findMany({
+    where: term
+      ? {
+          OR: [
+            { titleEn: { contains: term } },
+            { titleAr: { contains: term } },
+            { summaryEn: { contains: term } },
+            { summaryAr: { contains: term } },
+          ],
+        }
+      : undefined,
+    orderBy: { createdAt: "desc" },
+  });
+}
+
 // ─── Mutations ────────────────────────────────────────────────────────────────
 
 function refresh() {

@@ -1,9 +1,13 @@
 import Link from "next/link";
-import { deleteSponsor, updateSponsorStatus } from "@/actions/sponsors";
+import {
+  deleteSponsor,
+  getSponsors,
+  updateSponsorStatus,
+} from "@/actions/sponsors";
+import { SearchForm } from "@/components/admin/SearchForm";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
 import {
   Select,
   SelectContent,
@@ -19,7 +23,6 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import { getSponsors } from "@/actions/sponsors";
 
 export default async function SponsorsPage({
   searchParams,
@@ -45,13 +48,7 @@ export default async function SponsorsPage({
         </p>
       </CardHeader>
       <CardContent className="px-3 sm:px-4 py-1">
-        <form className="mb-4 w-1/3">
-          <Input
-            name="q"
-            defaultValue={q}
-            placeholder="Search company, email or phone"
-          />
-        </form>
+        <SearchForm placeholder="Search company, email or phone" />
         <Table className="min-w-245">
           <TableHeader>
             <TableRow>
