@@ -1,7 +1,8 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
-import { ar } from "@/app/dictionaries/news/ar";
-import { en } from "@/app/dictionaries/news/en";
+import { useLanguage } from "@/app/context/LanguageContext";
 
 type NewsItem = {
   id: number;
@@ -13,22 +14,22 @@ type NewsItem = {
   publishedAt: Date | null;
 };
 
-type Locale = "ar" | "en";
 type NewsType = "all" | "news" | "announcement" | "registration";
 
 export default function PublishedNews({
   items,
-  locale,
   selectedType,
 }: {
   items: NewsItem[];
-  locale: Locale;
   selectedType: string;
 }) {
-  const t = locale === "ar" ? ar : en;
-  const activeType: NewsType = ["all", "news", "announcement", "registration"].includes(
-    selectedType,
-  )
+  const { locale, t } = useLanguage();
+  const activeType: NewsType = [
+    "all",
+    "news",
+    "announcement",
+    "registration",
+  ].includes(selectedType)
     ? (selectedType as NewsType)
     : "all";
   const typeLabels = {
@@ -94,13 +95,16 @@ export default function PublishedNews({
                 >
                   <div className="flex-1">
                     <span className="inline-flex rounded-full border border-secondary/20 bg-secondary/10 px-3 py-1 text-xs font-semibold text-secondary">
-                      {typeLabels[item.type as keyof typeof typeLabels] || typeLabels.news}
+                      {typeLabels[item.type as keyof typeof typeLabels] ||
+                        typeLabels.news}
                     </span>
                     <h3 className="mt-3 text-xl font-bold leading-snug tracking-tight text-primary transition-colors group-hover:text-secondary sm:text-2xl">
                       {title}
                     </h3>
                     <p className="mt-3 text-xs font-medium text-muted-foreground sm:text-sm">
-                      {item.publishedAt?.toLocaleDateString()}
+                      {item.publishedAt?.toLocaleDateString(
+                        locale === "ar" ? "ar-SA" : "en-US",
+                      )}
                     </p>
                     {summary && (
                       <p className="mt-3 max-w-3xl text-sm text-muted-foreground sm:text-base">

@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { cookies } from "next/headers";
 import PublishedNews from "./_components/PublishedNews";
 import { getPublishedNews } from "@/actions/news";
 
@@ -22,10 +21,6 @@ export default async function News({
   const params = await searchParams;
   const items = await getPublishedNews();
   const selectedType = typeof params.type === "string" ? params.type : "all";
-  const locale =
-    (await cookies()).get("medbx_locale")?.value === "en" ? "en" : "ar";
 
-  return (
-    <PublishedNews items={items} locale={locale} selectedType={selectedType} />
-  );
+  return <PublishedNews items={items} selectedType={selectedType} />;
 }

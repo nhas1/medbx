@@ -1,6 +1,7 @@
 "use client";
 
 import React, { createContext, useContext, useState, useEffect } from "react";
+import { useRouter } from "next/navigation";
 import { en as homeEn, HomeDictionary } from "../dictionaries/home/en";
 import { ar as homeAr } from "../dictionaries/home/ar";
 import { en as sponsorsEn, SponsorsDictionary } from "../dictionaries/sponsors/en";
@@ -47,16 +48,17 @@ interface LanguageContextType {
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
 export function LanguageProvider({ children }: { children: React.ReactNode }) {
+  const router = useRouter();
   const [locale, setLocaleState] = useState<Locale>("ar");
 
-  // Ensure default is always Arabic on app open
   useEffect(() => {
-    // Remove old saved 'en' from localStorage so opening the app starts in Arabic
     if (localStorage.getItem("medbx_locale") === "en") {
       localStorage.removeItem("medbx_locale");
     }
     const savedLocale = sessionStorage.getItem("medbx_locale") as Locale | null;
     if (savedLocale === "en" || savedLocale === "ar") {
+      // Persisted client preference is intentionally restored after hydration.
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setLocaleState(savedLocale);
     }
   }, []);
@@ -68,6 +70,7 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
     setLocaleState(newLocale);
     sessionStorage.setItem("medbx_locale", newLocale);
     document.cookie = `medbx_locale=${newLocale}; path=/; max-age=31536000; samesite=lax`;
+    router.refresh();
   };
 
   const toggleLocale = () => {
